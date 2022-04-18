@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plot_spec>
+    <connection>
+        <host>rds_host:3306</host>
+        <database>mv_g2g_vsdb_verf_cloud</database>
+        <user>rds_user</user>
+        <password>rds_pwd</password>
+        <management_system>aurora</management_system>
+    </connection>
+    <rscript>Rscript</rscript>
+    <folders>
+        <r_tmpl>rds_R_tmpl</r_tmpl>
+        <r_work>rds_R_work</r_work>
+        <plots>rds_plots</plots>
+        <data>rds_data</data>
+        <scripts>rds_scripts</scripts>
+    </folders>
+    <plot>
+        <template>series_plot.R_tmpl</template>
+        <dep>
+            <dep1>
+                <fcst_var name="TOTCLD">
+                    <stat>ME</stat>
+                </fcst_var>
+            </dep1>
+            <dep2/>
+        </dep>
+        <series1>
+            <field name="model">
+                <val>CONUSARW_212</val>
+                <val>CONUSNMMB_212</val>
+                <val>GFS_212</val>
+                <val>HRRR_212</val>
+                <val>NAMNEST_212</val>
+                <val>NAM_212</val>
+            </field>
+        </series1>
+        <series2/>
+        <plot_fix>
+            <field equalize="false" name="fcst_lead">
+                <set name="fcst_lead_0">
+                    <val>12</val>
+                </set>
+            </field>
+            <field equalize="false" name="vx_mask">
+                <set name="vx_mask_1">
+                    <val>G212</val>
+                </set>
+            </field>
+        </plot_fix>
+        <plot_cond/>
+        <indep equalize="false" name="fcst_valid_beg">
+            <val label="mon-01 00" plot_val="">YYYY-MM-01 00:00:00</val>
+            <val label="mon-01 06" plot_val="">YYYY-MM-01 06:00:00</val>
+            <val label="mon-01 12" plot_val="">YYYY-MM-01 12:00:00</val>
+            <val label="mon-01 18" plot_val="">YYYY-MM-01 18:00:00</val>
+            <val label="mon-02 00" plot_val="">YYYY-MM-02 00:00:00</val>
+            <val label="mon-02 06" plot_val="">YYYY-MM-02 06:00:00</val>
+            <val label="mon-02 12" plot_val="">YYYY-MM-02 12:00:00</val>
+            <val label="mon-02 18" plot_val="">YYYY-MM-02 18:00:00</val>
+            <val label="mon-03 00" plot_val="">YYYY-MM-03 00:00:00</val>
+            <val label="mon-03 06" plot_val="">YYYY-MM-03 06:00:00</val>
+            <val label="mon-03 12" plot_val="">YYYY-MM-03 12:00:00</val>
+            <val label="mon-03 18" plot_val="">YYYY-MM-03 18:00:00</val>
+            <val label="mon-04 00" plot_val="">YYYY-MM-04 00:00:00</val>
+            <val label="mon-04 06" plot_val="">YYYY-MM-04 06:00:00</val>
+            <val label="mon-04 12" plot_val="">YYYY-MM-04 12:00:00</val>
+            <val label="mon-04 18" plot_val="">YYYY-MM-04 18:00:00</val>
+            <val label="mon-05 00" plot_val="">YYYY-MM-05 00:00:00</val>
+            <val label="mon-05 06" plot_val="">YYYY-MM-05 06:00:00</val>
+            <val label="mon-05 12" plot_val="">YYYY-MM-05 12:00:00</val>
+            <val label="mon-05 18" plot_val="">YYYY-MM-05 18:00:00</val>
+            <val label="mon-06 00" plot_val="">YYYY-MM-06 00:00:00</val>
+            <val label="mon-06 06" plot_val="">YYYY-MM-06 06:00:00</val>
+            <val label="mon-06 12" plot_val="">YYYY-MM-06 12:00:00</val>
+            <val label="mon-06 18" plot_val="">YYYY-MM-06 18:00:00</val>
+            <val label="mon-07 00" plot_val="">YYYY-MM-07 00:00:00</val>
+            <val label="mon-07 06" plot_val="">YYYY-MM-07 06:00:00</val>
+            <val label="mon-07 12" plot_val="">YYYY-MM-07 12:00:00</val>
+            <val label="mon-07 18" plot_val="">YYYY-MM-07 18:00:00</val>
+            <val label="mon-08 00" plot_val="">YYYY-MM-08 00:00:00</val>
+            <val label="mon-08 06" plot_val="">YYYY-MM-08 06:00:00</val>
+            <val label="mon-08 12" plot_val="">YYYY-MM-08 12:00:00</val>
+            <val label="mon-08 18" plot_val="">YYYY-MM-08 18:00:00</val>
+            <val label="mon-09 00" plot_val="">YYYY-MM-09 00:00:00</val>
+            <val label="mon-09 06" plot_val="">YYYY-MM-09 06:00:00</val>
+            <val label="mon-09 12" plot_val="">YYYY-MM-09 12:00:00</val>
+            <val label="mon-09 18" plot_val="">YYYY-MM-09 18:00:00</val>
+            <val label="mon-10 00" plot_val="">YYYY-MM-10 00:00:00</val>
+            <val label="mon-10 06" plot_val="">YYYY-MM-10 06:00:00</val>
+            <val label="mon-10 12" plot_val="">YYYY-MM-10 12:00:00</val>
+            <val label="mon-10 18" plot_val="">YYYY-MM-10 18:00:00</val>
+            <val label="mon-11 00" plot_val="">YYYY-MM-11 00:00:00</val>
+            <val label="mon-11 06" plot_val="">YYYY-MM-11 06:00:00</val>
+            <val label="mon-11 12" plot_val="">YYYY-MM-11 12:00:00</val>
+            <val label="mon-11 18" plot_val="">YYYY-MM-11 18:00:00</val>
+            <val label="mon-12 00" plot_val="">YYYY-MM-12 00:00:00</val>
+            <val label="mon-12 06" plot_val="">YYYY-MM-12 06:00:00</val>
+            <val label="mon-12 12" plot_val="">YYYY-MM-12 12:00:00</val>
+            <val label="mon-12 18" plot_val="">YYYY-MM-12 18:00:00</val>
+            <val label="mon-13 00" plot_val="">YYYY-MM-13 00:00:00</val>
+            <val label="mon-13 06" plot_val="">YYYY-MM-13 06:00:00</val>
+            <val label="mon-13 12" plot_val="">YYYY-MM-13 12:00:00</val>
+            <val label="mon-13 18" plot_val="">YYYY-MM-13 18:00:00</val>
+            <val label="mon-14 00" plot_val="">YYYY-MM-14 00:00:00</val>
+            <val label="mon-14 06" plot_val="">YYYY-MM-14 06:00:00</val>
+            <val label="mon-14 12" plot_val="">YYYY-MM-14 12:00:00</val>
+            <val label="mon-14 18" plot_val="">YYYY-MM-14 18:00:00</val>
+            <val label="mon-15 00" plot_val="">YYYY-MM-15 00:00:00</val>
+            <val label="mon-15 06" plot_val="">YYYY-MM-15 06:00:00</val>
+            <val label="mon-15 12" plot_val="">YYYY-MM-15 12:00:00</val>
+            <val label="mon-15 18" plot_val="">YYYY-MM-15 18:00:00</val>
+            <val label="mon-16 00" plot_val="">YYYY-MM-16 00:00:00</val>
+            <val label="mon-16 06" plot_val="">YYYY-MM-16 06:00:00</val>
+            <val label="mon-16 12" plot_val="">YYYY-MM-16 12:00:00</val>
+            <val label="mon-16 18" plot_val="">YYYY-MM-16 18:00:00</val>
+            <val label="mon-17 00" plot_val="">YYYY-MM-17 00:00:00</val>
+            <val label="mon-17 06" plot_val="">YYYY-MM-17 06:00:00</val>
+            <val label="mon-17 12" plot_val="">YYYY-MM-17 12:00:00</val>
+            <val label="mon-17 18" plot_val="">YYYY-MM-17 18:00:00</val>
+            <val label="mon-18 00" plot_val="">YYYY-MM-18 00:00:00</val>
+            <val label="mon-18 06" plot_val="">YYYY-MM-18 06:00:00</val>
+            <val label="mon-18 12" plot_val="">YYYY-MM-18 12:00:00</val>
+            <val label="mon-18 18" plot_val="">YYYY-MM-18 18:00:00</val>
+            <val label="mon-19 00" plot_val="">YYYY-MM-19 00:00:00</val>
+            <val label="mon-19 06" plot_val="">YYYY-MM-19 06:00:00</val>
+            <val label="mon-19 12" plot_val="">YYYY-MM-19 12:00:00</val>
+            <val label="mon-19 18" plot_val="">YYYY-MM-19 18:00:00</val>
+            <val label="mon-20 00" plot_val="">YYYY-MM-20 00:00:00</val>
+            <val label="mon-20 06" plot_val="">YYYY-MM-20 06:00:00</val>
+            <val label="mon-20 12" plot_val="">YYYY-MM-20 12:00:00</val>
+            <val label="mon-20 18" plot_val="">YYYY-MM-20 18:00:00</val>
+            <val label="mon-21 00" plot_val="">YYYY-MM-21 00:00:00</val>
+            <val label="mon-21 06" plot_val="">YYYY-MM-21 06:00:00</val>
+            <val label="mon-21 12" plot_val="">YYYY-MM-21 12:00:00</val>
+            <val label="mon-21 18" plot_val="">YYYY-MM-21 18:00:00</val>
+            <val label="mon-22 00" plot_val="">YYYY-MM-22 00:00:00</val>
+            <val label="mon-22 06" plot_val="">YYYY-MM-22 06:00:00</val>
+            <val label="mon-22 12" plot_val="">YYYY-MM-22 12:00:00</val>
+            <val label="mon-22 18" plot_val="">YYYY-MM-22 18:00:00</val>
+            <val label="mon-23 00" plot_val="">YYYY-MM-23 00:00:00</val>
+            <val label="mon-23 06" plot_val="">YYYY-MM-23 06:00:00</val>
+            <val label="mon-23 12" plot_val="">YYYY-MM-23 12:00:00</val>
+            <val label="mon-23 18" plot_val="">YYYY-MM-23 18:00:00</val>
+            <val label="mon-24 00" plot_val="">YYYY-MM-24 00:00:00</val>
+            <val label="mon-24 06" plot_val="">YYYY-MM-24 06:00:00</val>
+            <val label="mon-24 12" plot_val="">YYYY-MM-24 12:00:00</val>
+            <val label="mon-24 18" plot_val="">YYYY-MM-24 18:00:00</val>
+            <val label="mon-25 00" plot_val="">YYYY-MM-25 00:00:00</val>
+            <val label="mon-25 06" plot_val="">YYYY-MM-25 06:00:00</val>
+            <val label="mon-25 12" plot_val="">YYYY-MM-25 12:00:00</val>
+            <val label="mon-25 18" plot_val="">YYYY-MM-25 18:00:00</val>
+            <val label="mon-26 00" plot_val="">YYYY-MM-26 00:00:00</val>
+            <val label="mon-26 06" plot_val="">YYYY-MM-26 06:00:00</val>
+            <val label="mon-26 12" plot_val="">YYYY-MM-26 12:00:00</val>
+            <val label="mon-26 18" plot_val="">YYYY-MM-26 18:00:00</val>
+            <val label="mon-27 00" plot_val="">YYYY-MM-27 00:00:00</val>
+            <val label="mon-27 06" plot_val="">YYYY-MM-27 06:00:00</val>
+            <val label="mon-27 12" plot_val="">YYYY-MM-27 12:00:00</val>
+            <val label="mon-27 18" plot_val="">YYYY-MM-27 18:00:00</val>
+            <val label="mon-28 00" plot_val="">YYYY-MM-28 00:00:00</val>
+            <val label="mon-28 06" plot_val="">YYYY-MM-28 06:00:00</val>
+            <val label="mon-28 12" plot_val="">YYYY-MM-28 12:00:00</val>
+            <val label="mon-28 18" plot_val="">YYYY-MM-28 18:00:00</val>
+            <val label="mon-29 00" plot_val="">YYYY-MM-29 00:00:00</val>
+            <val label="mon-29 06" plot_val="">YYYY-MM-29 06:00:00</val>
+            <val label="mon-29 12" plot_val="">YYYY-MM-29 12:00:00</val>
+            <val label="mon-29 18" plot_val="">YYYY-MM-29 18:00:00</val>
+            <val label="mon-30 00" plot_val="">YYYY-MM-30 00:00:00</val>
+            <val label="mon-30 06" plot_val="">YYYY-MM-30 06:00:00</val>
+            <val label="mon-30 12" plot_val="">YYYY-MM-30 12:00:00</val>
+            <val label="mon-30 18" plot_val="">YYYY-MM-30 18:00:00</val>
+            <val label="mon-31 00" plot_val="">YYYY-MM-31 00:00:00</val>
+            <val label="mon-31 06" plot_val="">YYYY-MM-31 06:00:00</val>
+            <val label="mon-31 12" plot_val="">YYYY-MM-31 12:00:00</val>
+            <val label="mon-31 18" plot_val="">YYYY-MM-31 18:00:00</val>
+        </indep>
+        <calc_stat>
+            <calc_sl1l2>true</calc_sl1l2>
+        </calc_stat>
+        <plot_stat>median</plot_stat>
+        <tmpl>
+            <data_file>Cloud_CLAVR_YYYYMM_ME_TimeSeries_12Fhr_CONUS.data</data_file>
+            <plot_file>Cloud_CLAVR_YYYYMM_ME_TimeSeries_12Fhr_CONUS.png</plot_file>
+            <r_file>Cloud_CLAVR_YYYYMM_ME_TimeSeries_12Fhr_CONUS.R</r_file>
+            <title>Total Cloud ~  CLAVR verification: mon, YYYY over CONUS </title>
+            <x_label>Validation Days</x_label>
+            <y1_label>Mean Error (12 forecast hour) </y1_label>
+            <y2_label/>
+            <caption/>
+            <job_title/>
+            <keep_revisions>false</keep_revisions>
+            <listdiffseries1>list()</listdiffseries1>
+            <listdiffseries2>list()</listdiffseries2>
+        </tmpl>
+        <event_equal>false</event_equal>
+        <vert_plot>false</vert_plot>
+        <x_reverse>false</x_reverse>
+        <num_stats>false</num_stats>
+        <indy1_stag>false</indy1_stag>
+        <indy2_stag>false</indy2_stag>
+        <grid_on>true</grid_on>
+        <sync_axes>false</sync_axes>
+        <dump_points1>false</dump_points1>
+        <dump_points2>false</dump_points2>
+        <log_y1>false</log_y1>
+        <log_y2>false</log_y2>
+        <varianceinflationfactor>false</varianceinflationfactor>
+        <plot_type>png16m</plot_type>
+        <plot_height>8.5</plot_height>
+        <plot_width>11</plot_width>
+        <plot_res>72</plot_res>
+        <plot_units>in</plot_units>
+        <mar>c(8,4,5,4)</mar>
+        <mgp>c(1,1,0)</mgp>
+        <cex>1</cex>
+        <title_weight>2</title_weight>
+        <title_size>1.4</title_size>
+        <title_offset>-2</title_offset>
+        <title_align>0.5</title_align>
+        <xtlab_orient>3</xtlab_orient>
+        <xtlab_perp>-0.75</xtlab_perp>
+        <xtlab_horiz>0.5</xtlab_horiz>
+        <xtlab_freq>1</xtlab_freq>
+        <xtlab_size>1</xtlab_size>
+        <xlab_weight>1</xlab_weight>
+        <xlab_size>1.3</xlab_size>
+        <xlab_offset>2.5</xlab_offset>
+        <xlab_align>0.5</xlab_align>
+        <ytlab_orient>1</ytlab_orient>
+        <ytlab_perp>0.5</ytlab_perp>
+        <ytlab_horiz>0.5</ytlab_horiz>
+        <ytlab_size>1</ytlab_size>
+        <ylab_weight>1</ylab_weight>
+        <ylab_size>1.3</ylab_size>
+        <ylab_offset>-2</ylab_offset>
+        <ylab_align>0.5</ylab_align>
+        <grid_lty>3</grid_lty>
+        <grid_col>#cccccc</grid_col>
+        <grid_lwd>1</grid_lwd>
+        <grid_x>listX</grid_x>
+        <x2tlab_orient>1</x2tlab_orient>
+        <x2tlab_perp>1</x2tlab_perp>
+        <x2tlab_horiz>0.5</x2tlab_horiz>
+        <x2tlab_size>0.8</x2tlab_size>
+        <x2lab_size>0.8</x2lab_size>
+        <x2lab_offset>-0.5</x2lab_offset>
+        <x2lab_align>0.5</x2lab_align>
+        <y2tlab_orient>1</y2tlab_orient>
+        <y2tlab_perp>0.5</y2tlab_perp>
+        <y2tlab_horiz>0.5</y2tlab_horiz>
+        <y2tlab_size>1</y2tlab_size>
+        <y2lab_size>1</y2lab_size>
+        <y2lab_offset>1</y2lab_offset>
+        <y2lab_align>0.5</y2lab_align>
+        <legend_box>o</legend_box>
+        <legend_inset>c(0, -.25)</legend_inset>
+        <legend_ncol>3</legend_ncol>
+        <legend_size>1.2</legend_size>
+        <caption_weight>1</caption_weight>
+        <caption_col>#333333</caption_col>
+        <caption_size>0.8</caption_size>
+        <caption_offset>3</caption_offset>
+        <caption_align>0</caption_align>
+        <ci_alpha>0.05</ci_alpha>
+        <plot_ci>c("none","none","none","none","none","none")</plot_ci>
+        <show_signif>c(FALSE,FALSE,FALSE,FALSE,FALSE,FALSE)</show_signif>
+        <plot_disp>c(TRUE,TRUE,TRUE,TRUE,TRUE,TRUE)</plot_disp>
+        <colors>c("#ff0000FF","#121211FF","#7fff00FF","#00ffffFF","#0000ffFF","#8000ffFF")</colors>
+        <pch>c(20,20,20,20,20,20)</pch>
+        <type>c("b","b","b","b","b","b")</type>
+        <lty>c(1,1,1,1,1,1)</lty>
+        <lwd>c(1,1,1,1,1,1)</lwd>
+        <con_series>c(1,1,1,1,1,1)</con_series>
+        <order_series>c(1,2,3,4,5,6)</order_series>
+        <plot_cmd/>
+        <legend>c("Hires-ARW","Hires-NMMB","GFS","HRRR","NAMnest","NAM")</legend>
+        <y1_lim>c(-100,100)</y1_lim>
+        <x1_lim>c()</x1_lim>
+        <y1_bufr>0.04</y1_bufr>
+        <y2_lim>c()</y2_lim>
+    </plot>
+</plot_spec>

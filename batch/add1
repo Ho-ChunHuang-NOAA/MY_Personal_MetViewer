@@ -1,0 +1,1 @@
+    print("you must set 4 arguments as stat[o3|rmse|...] [day1|day2|day3] start_date end_date event_equal[optional]")

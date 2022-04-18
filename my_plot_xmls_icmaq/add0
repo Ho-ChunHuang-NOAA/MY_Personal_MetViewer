@@ -1,0 +1,2 @@
+models = [ "PARA6d", "PROD", "V150A" ]
+lend_mdl = [ "GFS-CMAQ", "NAM-CMAQ", "v150-a" ]

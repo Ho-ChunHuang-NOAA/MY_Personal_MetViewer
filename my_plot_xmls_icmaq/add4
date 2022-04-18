@@ -1,0 +1,1 @@
+    xml.write("        <legend>c(\"NAM-CMAQ\",\"v160a\")</legend>\n")

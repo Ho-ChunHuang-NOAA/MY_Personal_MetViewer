@@ -1,0 +1,68 @@
+<load_spec>
+  <connection>
+    <host>metviewer-dev-cluster.cluster-czbts4gd2wm2.us-east-1.rds.amazonaws.com:3306</host>
+    <database>mv_aqm_hchuang</database>
+    <user>rds_user</user>
+    <password>rds_pwd</password>
+    <management_system>aurora</management_system>
+  </connection>
+
+  <met_version>V8.1.2</met_version>
+
+  <verbose>true</verbose>
+  <insert_size>1</insert_size>
+  <mode_header_db_check>true</mode_header_db_check>
+  <stat_header_db_check>true</stat_header_db_check>
+  <drop_indexes>true</drop_indexes>
+  <apply_indexes>true</apply_indexes>
+  <load_stat>true</load_stat>
+  <load_mode>true</load_mode>
+  <load_mpr>true</load_mpr>
+  <load_orank>true</load_orank>
+  <force_dup_file>false</force_dup_file>
+  <group>NCEP_hcHuang</group>
+  <description>Grid-to-obs VSDB data for operational and experimental CMAQ</description>
+  <load_files>
+    <file>/base_dir/cmaqpara87h_20190613.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190614.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190615.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190616.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190617.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190618.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190619.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190620.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190621.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190622.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190623.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190624.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190625.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190626.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190627.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190628.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190629.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190630.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190701.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190702.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190703.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190704.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190705.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190706.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190707.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190708.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190709.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190710.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190711.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190712.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190713.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190714.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190715.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190716.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190717.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190718.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190719.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190720.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190721.vsdb</file>
+    <file>/base_dir/cmaqpara87h_20190722.vsdb</file>
+  </load_files>
+
+</load_spec>

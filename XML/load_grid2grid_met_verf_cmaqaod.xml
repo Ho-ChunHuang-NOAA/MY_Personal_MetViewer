@@ -1,0 +1,33 @@
+<load_spec>
+  <connection>
+    <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com:3306</host>
+    <database>mv_cmaq_aod202204_grid2grid_metplus</database>
+    <user>rds_user</user>
+    <password>rds_pwd</password>
+    <management_system>aurora</management_system>
+  </connection>
+
+  <met_version>V8.1.2</met_version>
+
+  <verbose>true</verbose>
+  <insert_size>1</insert_size>
+  <mode_header_db_check>true</mode_header_db_check>
+  <stat_header_db_check>true</stat_header_db_check>
+  <drop_indexes>true</drop_indexes>
+  <apply_indexes>true</apply_indexes>
+  <load_stat>true</load_stat>
+  <load_mode>true</load_mode>
+  <load_mpr>true</load_mpr>
+  <load_orank>true</load_orank>
+  <force_dup_file>true</force_dup_file>
+  <group>NCEP_hcHuang</group>
+  <description>Loading mv_cmaq_aod202204_grid2grid_metplus</description>
+  <folder_tmpl>/base_dir/{type}</folder_tmpl>
+    <load_val>
+     <field name="type">
+       <val>verif</val>
+     </field>
+    </load_val>
+  <load_xml>true</load_xml>
+  <load_note></load_note>
+</load_spec>

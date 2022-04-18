@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plot_spec>
+    <connection>
+        <host>metviewer-dev-cluster.cluster-czbts4gd2wm2.us-east-1.rds.amazonaws.com</host>
+        <database>mv_hms_hchuang</database>
+        <user>******</user>
+        <password>******</password>
+        <management_system>aurora</management_system>
+    </connection>
+    <folders>
+        <r_tmpl>/var/lib/tomcat/webapps/metviewer/R_tmpl</r_tmpl>
+        <r_work>/var/lib/tomcat/webapps/metviewer/R_work</r_work>
+        <plots>/var/www/output/plots</plots>
+        <data>/var/www/output/data</data>
+        <scripts>/var/www/output/scripts</scripts>
+    </folders>
+    <plot>
+        <template>series_plot.R_tmpl</template>
+        <dep>
+            <dep1>
+                <fcst_var name="PM25/1">
+                    <stat>OBAR</stat>
+                    <stat>FBAR</stat>
+                </fcst_var>
+            </dep1>
+            <dep2/>
+        </dep>
+        <series1>
+            <field name="model">
+                <val>CMAQ5X/148</val>
+                <val>CMAQPARA93H/148</val>
+                <val>CMAQPARA94H/148</val>
+                <val>CMAQPARA97H/148</val>
+                <val>CMAQPARA98H/148</val>
+            </field>
+        </series1>
+        <series2/>
+        <plot_fix>
+            <field equalize="false" name="vx_mask">
+                <set name="vx_mask_0">
+                    <val>G104/NMT</val>
+                </set>
+            </field>
+            <field equalize="false" name="fcst_lead">
+                <set name="fcst_lead_1">
+                    <val>1</val>
+                    <val>2</val>
+                    <val>3</val>
+                    <val>4</val>
+                    <val>5</val>
+                    <val>6</val>
+                    <val>7</val>
+                    <val>8</val>
+                    <val>9</val>
+                    <val>10</val>
+                    <val>11</val>
+                    <val>12</val>
+                    <val>13</val>
+                    <val>14</val>
+                    <val>15</val>
+                    <val>16</val>
+                    <val>17</val>
+                    <val>18</val>
+                    <val>19</val>
+                    <val>20</val>
+                    <val>21</val>
+                    <val>22</val>
+                    <val>23</val>
+                    <val>24</val>
+                </set>
+            </field>
+        </plot_fix>
+        <plot_cond/>
+        <indep equalize="false" name="fcst_valid_beg">
+            <val label="2019-08-17 00:00:00" plot_val="">2019-08-17 00:00:00</val>
+            <val label="2019-08-17 01:00:00" plot_val="">2019-08-17 01:00:00</val>
+            <val label="2019-08-17 02:00:00" plot_val="">2019-08-17 02:00:00</val>
+            <val label="2019-08-17 03:00:00" plot_val="">2019-08-17 03:00:00</val>
+            <val label="2019-08-17 04:00:00" plot_val="">2019-08-17 04:00:00</val>
+            <val label="2019-08-17 05:00:00" plot_val="">2019-08-17 05:00:00</val>
+            <val label="2019-08-17 06:00:00" plot_val="">2019-08-17 06:00:00</val>
+            <val label="2019-08-17 07:00:00" plot_val="">2019-08-17 07:00:00</val>
+            <val label="2019-08-17 08:00:00" plot_val="">2019-08-17 08:00:00</val>
+            <val label="2019-08-17 09:00:00" plot_val="">2019-08-17 09:00:00</val>
+            <val label="2019-08-17 10:00:00" plot_val="">2019-08-17 10:00:00</val>
+            <val label="2019-08-17 11:00:00" plot_val="">2019-08-17 11:00:00</val>
+            <val label="2019-08-17 12:00:00" plot_val="">2019-08-17 12:00:00</val>
+            <val label="2019-08-17 13:00:00" plot_val="">2019-08-17 13:00:00</val>
+            <val label="2019-08-17 14:00:00" plot_val="">2019-08-17 14:00:00</val>
+            <val label="2019-08-17 15:00:00" plot_val="">2019-08-17 15:00:00</val>
+            <val label="2019-08-17 16:00:00" plot_val="">2019-08-17 16:00:00</val>
+            <val label="2019-08-17 17:00:00" plot_val="">2019-08-17 17:00:00</val>
+            <val label="2019-08-17 18:00:00" plot_val="">2019-08-17 18:00:00</val>
+            <val label="2019-08-17 19:00:00" plot_val="">2019-08-17 19:00:00</val>
+            <val label="2019-08-17 20:00:00" plot_val="">2019-08-17 20:00:00</val>
+            <val label="2019-08-17 21:00:00" plot_val="">2019-08-17 21:00:00</val>
+            <val label="2019-08-17 22:00:00" plot_val="">2019-08-17 22:00:00</val>
+            <val label="2019-08-17 23:00:00" plot_val="">2019-08-17 23:00:00</val>
+            <val label="2019-08-18 00:00:00" plot_val="">2019-08-18 00:00:00</val>
+            <val label="2019-08-18 01:00:00" plot_val="">2019-08-18 01:00:00</val>
+            <val label="2019-08-18 02:00:00" plot_val="">2019-08-18 02:00:00</val>
+            <val label="2019-08-18 03:00:00" plot_val="">2019-08-18 03:00:00</val>
+            <val label="2019-08-18 04:00:00" plot_val="">2019-08-18 04:00:00</val>
+            <val label="2019-08-18 05:00:00" plot_val="">2019-08-18 05:00:00</val>
+            <val label="2019-08-18 06:00:00" plot_val="">2019-08-18 06:00:00</val>
+            <val label="2019-08-18 07:00:00" plot_val="">2019-08-18 07:00:00</val>
+            <val label="2019-08-18 08:00:00" plot_val="">2019-08-18 08:00:00</val>
+            <val label="2019-08-18 09:00:00" plot_val="">2019-08-18 09:00:00</val>
+            <val label="2019-08-18 10:00:00" plot_val="">2019-08-18 10:00:00</val>
+            <val label="2019-08-18 11:00:00" plot_val="">2019-08-18 11:00:00</val>
+            <val label="2019-08-18 12:00:00" plot_val="">2019-08-18 12:00:00</val>
+            <val label="2019-08-18 13:00:00" plot_val="">2019-08-18 13:00:00</val>
+            <val label="2019-08-18 14:00:00" plot_val="">2019-08-18 14:00:00</val>
+            <val label="2019-08-18 15:00:00" plot_val="">2019-08-18 15:00:00</val>
+            <val label="2019-08-18 16:00:00" plot_val="">2019-08-18 16:00:00</val>
+            <val label="2019-08-18 17:00:00" plot_val="">2019-08-18 17:00:00</val>
+            <val label="2019-08-18 18:00:00" plot_val="">2019-08-18 18:00:00</val>
+            <val label="2019-08-18 19:00:00" plot_val="">2019-08-18 19:00:00</val>
+            <val label="2019-08-18 20:00:00" plot_val="">2019-08-18 20:00:00</val>
+            <val label="2019-08-18 21:00:00" plot_val="">2019-08-18 21:00:00</val>
+            <val label="2019-08-18 22:00:00" plot_val="">2019-08-18 22:00:00</val>
+            <val label="2019-08-18 23:00:00" plot_val="">2019-08-18 23:00:00</val>
+        </indep>
+        <calc_stat>
+            <calc_sl1l2>true</calc_sl1l2>
+        </calc_stat>
+        <plot_stat>median</plot_stat>
+        <tmpl>
+            <data_file>plot_plot_CMAQ_PM25_TIME_SERIES_DAY1_12Z.data</data_file>
+            <plot_file>plot_plot_CMAQ_PM25_TIME_SERIES_DAY1_12Z.png</plot_file>
+            <r_file>plot_plot_CMAQ_PM25_TIME_SERIES_DAY1_12Z.R</r_file>
+            <title>TIME_SERIES of surface Layer PM25 - NMT DAY1 12Z</title>
+            <x_label>DAY</x_label>
+            <y1_label>Concentration ug/m^3</y1_label>
+            <y2_label/>
+            <caption/>
+            <job_title>plot_CMAQ_PM25_TIME_SERIES_DAY1_12Z</job_title>
+            <keep_revisions>false</keep_revisions>
+            <listdiffseries1>list()</listdiffseries1>
+            <listdiffseries2>list()</listdiffseries2>
+        </tmpl>
+        <event_equal>false</event_equal>
+        <vert_plot>false</vert_plot>
+        <x_reverse>false</x_reverse>
+        <num_stats>false</num_stats>
+        <indy1_stag>false</indy1_stag>
+        <indy2_stag>false</indy2_stag>
+        <grid_on>true</grid_on>
+        <sync_axes>false</sync_axes>
+        <dump_points1>false</dump_points1>
+        <dump_points2>false</dump_points2>
+        <log_y1>false</log_y1>
+        <log_y2>false</log_y2>
+        <varianceinflationfactor>false</varianceinflationfactor>
+        <plot_type>png16m</plot_type>
+        <plot_height>8.5</plot_height>
+        <plot_width>11</plot_width>
+        <plot_res>72</plot_res>
+        <plot_units>in</plot_units>
+        <mar>c(8,4,5,4)</mar>
+        <mgp>c(1,1,0)</mgp>
+        <cex>1</cex>
+        <title_weight>2</title_weight>
+        <title_size>2.4</title_size>
+        <title_offset>0</title_offset>
+        <title_align>0.5</title_align>
+        <xtlab_orient>3</xtlab_orient>
+        <xtlab_perp>-0.25</xtlab_perp>
+        <xtlab_horiz>0.9</xtlab_horiz>
+        <xtlab_freq>12</xtlab_freq>
+        <xtlab_size>1.3</xtlab_size>
+        <xlab_weight>1</xlab_weight>
+        <xlab_size>2</xlab_size>
+        <xlab_offset>2</xlab_offset>
+        <xlab_align>0.5</xlab_align>
+        <ytlab_orient>1</ytlab_orient>
+        <ytlab_perp>0.5</ytlab_perp>
+        <ytlab_horiz>0.65</ytlab_horiz>
+        <ytlab_size>2</ytlab_size>
+        <ylab_weight>1</ylab_weight>
+        <ylab_size>2</ylab_size>
+        <ylab_offset>-1.3</ylab_offset>
+        <ylab_align>0.5</ylab_align>
+        <grid_lty>3</grid_lty>
+        <grid_col>#cccccc</grid_col>
+        <grid_lwd>1</grid_lwd>
+        <grid_x>listX</grid_x>
+        <x2tlab_orient>1</x2tlab_orient>
+        <x2tlab_perp>1</x2tlab_perp>
+        <x2tlab_horiz>0.5</x2tlab_horiz>
+        <x2tlab_size>0.8</x2tlab_size>
+        <x2lab_size>0.8</x2lab_size>
+        <x2lab_offset>-0.5</x2lab_offset>
+        <x2lab_align>0.5</x2lab_align>
+        <y2tlab_orient>1</y2tlab_orient>
+        <y2tlab_perp>0.5</y2tlab_perp>
+        <y2tlab_horiz>0.5</y2tlab_horiz>
+        <y2tlab_size>1</y2tlab_size>
+        <y2lab_size>1</y2lab_size>
+        <y2lab_offset>1</y2lab_offset>
+        <y2lab_align>0.5</y2lab_align>
+        <legend_box>o</legend_box>
+        <legend_inset>c(0, .90)</legend_inset>
+        <legend_ncol>6</legend_ncol>
+        <legend_size>1.2</legend_size>
+        <caption_weight>1</caption_weight>
+        <caption_col>#333333</caption_col>
+        <caption_size>0.8</caption_size>
+        <caption_offset>3</caption_offset>
+        <caption_align>0.5</caption_align>
+        <ci_alpha>0.05</ci_alpha>
+        <plot_ci>c("none","none","none","none","none","none","none","none","none","none")</plot_ci>
+        <show_signif>c(FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE)</show_signif>
+        <plot_disp>c(TRUE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,TRUE,TRUE,TRUE)</plot_disp>
+        <colors>c("#000000FF","#00aaffFF","#001cffFF","#3900ffFF","#ff00ffFF","#0000cdFF","#006400FF","#8fbc8fFF","#9400d3FF","#ff0000FF")</colors>
+        <pch>c(20,20,20,20,20,20,20,20,20,20)</pch>
+        <type>c("l","b","b","b","b","l","l","l","l","l")</type>
+        <lty>c(1,1,1,1,1,1,1,1,1,1)</lty>
+        <lwd>c(1,1,1,1,1,1,1,1,1,1)</lwd>
+        <con_series>c(1,1,1,1,1,1,1,1,1,1)</con_series>
+        <order_series>c(1,2,3,4,5,6,7,8,9,10)</order_series>
+        <plot_cmd/>
+        <legend>c("OBS","","","","","PROD","93h","94h","97h","98h")</legend>
+        <y1_lim>c()</y1_lim>
+        <x1_lim>c()</x1_lim>
+        <y1_bufr>0.04</y1_bufr>
+        <y2_lim>c(0,1)</y2_lim>
+    </plot>
+</plot_spec>

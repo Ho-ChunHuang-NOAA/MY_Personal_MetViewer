@@ -1,0 +1,1 @@
+                subprocess.call(["python", xml_gen_python_name, area, area, verf_day.lower(), fig_sdate, fig_edate, verf_cycle], event_equal_flag)
