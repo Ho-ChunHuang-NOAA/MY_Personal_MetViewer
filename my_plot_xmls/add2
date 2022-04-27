@@ -1,0 +1,5 @@
+    xml.write("        <indep equalize=\""+equalize_index+"\" name=\"fcst_lead\">\n")
+    vhour = vhour_beg
+    while vhour <= vhour_end:
+        xml.write("            <val label=\""+str(vhour)+"\" plot_val=\"\">"+str(vhour)+"0000</val>\n")
+        vhour = vhour + vhour_inc

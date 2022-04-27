@@ -32,8 +32,8 @@ else:
 ## There is no option of event-equal in performance selection
 event_equal_flag = "false"
 
-sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 00)
-edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 23)
+sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 11)
+edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 11)
 date_inc = datetime.timedelta(hours=24)
 hour_inc = datetime.timedelta(hours=1)
 val_date_format = "%Y-%m-%d %H:%M:%S"
@@ -170,7 +170,7 @@ with open(plot_xml_file, 'a') as xml:
     while date <= edate:
         val_date = date.strftime(val_date_format)
         xml.write("                    <val>"+val_date+"</val>\n")
-        date = date + hour_inc
+        date = date + date_inc
     xml.write("                </set>\n")
     xml.write("            </field>\n")
     xml.write("        </plot_fix>\n")

@@ -60,8 +60,8 @@ os.makedirs(tmp_data_dir)
 ymax="75.0"
 ymin="0.0"
 ybuf="0.0"
-models = [ "PROD", "V160A" ]
-lend_mdl = [ "NAM-CMAQ", "v160-a" ]
+models = [ "PROD", "V161A" ]
+lend_mdl = [ "NAM-CMAQ", "v161-a" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -100,7 +100,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_icmaq_aug19</database>\n")
+    xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -217,8 +217,8 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <log_y2>false</log_y2>\n")
     xml.write("        <varianceinflationfactor>false</varianceinflationfactor>\n")
     xml.write("        <plot_type>png16m</plot_type>\n")
-    xml.write("        <plot_height>8.5</plot_height>\n")
-    xml.write("        <plot_width>11</plot_width>\n")
+    xml.write("        <plot_height>6</plot_height>\n")
+    xml.write("        <plot_width>15</plot_width>\n")
     xml.write("        <plot_res>72</plot_res>\n")
     xml.write("        <plot_units>in</plot_units>\n")
     xml.write("        <mar>c(8,4,5,4)</mar>\n")
@@ -264,7 +264,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_offset>1</y2lab_offset>\n")
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
-    xml.write("        <legend_inset>c(0.1,0.95)</legend_inset>\n")
+    xml.write("        <legend_inset>c(0.15,1.05)</legend_inset>\n")
     xml.write("        <legend_ncol>3</legend_ncol>\n")
     xml.write("        <legend_size>2</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")
@@ -284,10 +284,10 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0,0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2,3,4)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v160a\",\"OBS\",\"\")</legend>\n")
+    xml.write("        <legend>c(\"NAM-CMAQ\",\"v161a\",\"OBS\",\"\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
-    xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
-    ## xml.write("        <y1_lim>c()</y1_lim>\n")
+    ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
+    xml.write("        <y1_lim>c()</y1_lim>\n")
     xml.write("        <x1_lim>c()</x1_lim>\n")
     xml.write("        <y1_bufr>"+ybuf+"</y1_bufr>\n")
     xml.write("        <y2_lim>c()</y2_lim>\n")

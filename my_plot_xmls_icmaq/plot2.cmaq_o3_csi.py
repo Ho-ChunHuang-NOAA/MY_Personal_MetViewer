@@ -58,8 +58,8 @@ ybuf="0.04"
 ymin="0.0"
 ymax="0.8"
 
-models = [ "PROD", "V160A" ]
-lend_mdl = [ "NAM-GFS", "v160-a" ]
+models = [ "PROD", "V161A" ]
+lend_mdl = [ "NAM-GFS", "v161-a" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -102,7 +102,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     if 1 == 1:
         xml.write("        <host>rds_host:3306</host>\n")
-        xml.write("        <database>mv_g2o_met_icmaq_aug19</database>\n")
+        xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
         xml.write("        <user>rds_user</user>\n")
         xml.write("        <password>rds_pwd</password>\n")
         ### xml.write("        <management_system>aurora</management_system>\n")
@@ -117,7 +117,7 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("    </folders>\n")
     else:
         xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
-        xml.write("        <database>mv_g2o_met_icmaq_aug19</database>\n")
+        xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
         xml.write("        <user>******</user>\n")
         xml.write("        <password>******</password>\n")
         xml.write("        <management_system>aurora</management_system>\n")
@@ -311,7 +311,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v160a\")</legend>\n")
+    xml.write("        <legend>c(\"NAM-CMAQ\",\"v161a\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
 ##     xml.write("        <y1_lim>c()</y1_lim>\n")

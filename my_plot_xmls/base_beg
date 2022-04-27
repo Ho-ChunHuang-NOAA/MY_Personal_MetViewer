@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plot_spec>
+    <connection>
+        <host>metviewer-dev-cluster.cluster-czbts4gd2wm2.us-east-1.rds.amazonaws.com</host>
+        <database>mv_hms_hchuang</database>
+        <user>******</user>
+        <password>******</password>
+        <management_system>aurora</management_system>
+    </connection>
+    <folders>
+        <r_tmpl>/var/lib/tomcat/webapps/metviewer/R_tmpl</r_tmpl>
+        <r_work>/var/lib/tomcat/webapps/metviewer/R_work</r_work>
+        <plots>/var/www/output/plots</plots>
+        <data>/var/www/output/data</data>
+        <scripts>/var/www/output/scripts</scripts>
+    </folders>

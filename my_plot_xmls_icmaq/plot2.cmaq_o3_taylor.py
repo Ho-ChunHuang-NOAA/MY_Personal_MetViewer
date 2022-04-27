@@ -56,7 +56,7 @@ ybuf="0.04"
 ymin="0.04"
 ymax="0.5"
 
-models = [ "PROD", "V160A" ]
+models = [ "PROD", "V161A" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 csi_thresh = [ "50", "60", "65", "70", "75", "85", "105", "125", "150" ]
@@ -94,7 +94,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_icmaq_aug19</database>\n")
+    xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")
@@ -275,7 +275,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd>points(1,0,pch=8,col=\"magenta\",cex=2)</plot_cmd>\n")
     ### xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v160a\")</legend>\n")
+    xml.write("        <legend>c(\"NAM-CMAQ\",\"v161a\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
     xml.write("        <y1_lim>c()</y1_lim>\n")

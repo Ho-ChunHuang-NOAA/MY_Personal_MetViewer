@@ -1,0 +1,8 @@
+    xml.write("            <field equalize=\""+equalize_index+"\" name=\"fcst_valid_beg\">\n")
+    xml.write("                <set name=\"fcst_valid_beg_1\">\n")
+    date = sdate
+    while date <= edate:
+        val_date = date.strftime(val_date_format)
+        label_date = date.strftime(lbl_date_format)
+        xml.write("                    <val>"+val_date+"</val>\n")
+        date = date + hour_inc

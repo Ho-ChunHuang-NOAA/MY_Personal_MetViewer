@@ -15,7 +15,7 @@ TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
 #    exit
 # fi
 TIME_ID1=sep20
-verif_type=g2o_met_icmaq
+verif_type=g2o_met
 met_datbase=mv_${verif_type}_${TIME_ID1}
 load_datbase_template=load_${verif_type}.base
 load_datbase_xml=load_${verif_type}.xml
@@ -43,7 +43,7 @@ XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
 ## DATA_DIR=/gpfs/${phase12_id}d3/emc/meso/noscrub/Ho-Chun.Huang/com2/aqm
 DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_aq/stat/aqm
 BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
-LOAD_DIR=${BASE_DIR}/verif_icmaq
+LOAD_DIR=${BASE_DIR}/verif
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_aod.xml
 ##

@@ -36,7 +36,7 @@ ymin="0.0"
 ybuf="0.01"
 models = [ "cmaqaod_para12", "cmaqaod_prod" ]
 lend_mdl = [ "PARA12", "PROD" ]
-lend_mdl = [ "PROD", "V150a" ]
+lend_mdl = [ "PROD", "V161a" ]
 lend_obs = [ "OBS" ]
 regs = [ "G104/APL", "G104/ECA", "G104/GMC", "G104/LMV", "G104/MDW", "G104/NEC", "G104/NMT", "G104/NPL", "G104/NWC", "G104/SEC", "G104/SMT", "G104/SPL", "G104/SWC", "G104/SWD", "G142", "G146", "G148", "G245", "G246", "G247" ] 
 if verf_day_id == "day1":

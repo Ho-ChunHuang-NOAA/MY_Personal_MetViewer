@@ -58,8 +58,8 @@ os.makedirs(tmp_data_dir)
 ymax="1.0"
 ymin="0.0"
 ybuf="0.01"
-models = [ "PROD", "V160A" ]
-lend_mdl = [ "NAM-CMAQ", "v160-a" ]
+models = [ "PROD", "V161A" ]
+lend_mdl = [ "NAM-CMAQ", "v161-a" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -98,7 +98,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_icmaq_aug19</database>\n")
+    xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -286,7 +286,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd>abline(h=0, col=\"black\", lwd=2, lty=2)</plot_cmd>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v160a\")</legend>\n")
+    xml.write("        <legend>c(\"NAM-CMAQ\",\"v161a\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
     ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")
