@@ -1,3 +1,1 @@
-elif stat_var == "pm25dl":
-    plot_var = eval_id+"_pm25_diurnal"
-    figfile = eval_id+"_"+obs_id+"_pm25_diurnal"
+test
