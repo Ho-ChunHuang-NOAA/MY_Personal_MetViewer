@@ -13,7 +13,7 @@ else:
     flag_vday = sys.argv[2]
     start_date = sys.argv[3]
     end_date = sys.argv[4]
-if stat_var == "dpt":
+if stat_var == "gust":
     stat_var = "time_series"
 print(str(len(sys.argv)))
 if len(sys.argv) > 5:
@@ -66,9 +66,9 @@ region = [ "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
            "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_rrfs"
-xml_gen_python_name = "plot3.cmaq_dpt_"+stat_var.lower()+".py"
-xml_gen_python_name = "plot2.cmaq_dpt_"+stat_var.lower()+".py"
-plot_xml_file = "plot_cmaq_dpt_"+stat_var.lower()+".xml"
+xml_gen_python_name = "plot3.cmaq_gust_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot2.cmaq_gust_"+stat_var.lower()+".py"
+plot_xml_file = "plot_cmaq_gust_"+stat_var.lower()+".xml"
 scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 checkfile=os.path.join(xml_data_dir,xml_gen_python_name)

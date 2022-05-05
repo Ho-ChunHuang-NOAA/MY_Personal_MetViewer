@@ -6,8 +6,8 @@ declare -a exp=( PROD PROD_BC )
 declare -a exp=( V161A )
 FIRSTDAY=$2
 LASTDAY=$3
-FIRSTDAY=20190801
-LASTDAY=20190901
+FIRSTDAY=20190828
+LASTDAY=20190828
 TIME_ID1=`echo ${FIRSTDAY} | cut -c1-6`
 TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
 # if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
@@ -15,7 +15,7 @@ TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
 #    exit
 # fi
 TIME_ID1=aug19
-TIME_ID1=aug19v161a
+TIME_ID1=aug19v161ahc
 verif_type=g2o_met_cam
 met_datbase=mv_${verif_type}_${TIME_ID1}
 load_datbase_template=load_${verif_type}.base
@@ -53,7 +53,7 @@ mkdir -p ${LOAD_DIR}
 #  Aug 2019 PROD statistic from Perry's
 #
 cd ${LOAD_DIR}
-if [ 1 -eq 2 ]; then
+if [ 1 -eq 1 ]; then
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do
        for i in "${exp[@]}"; do

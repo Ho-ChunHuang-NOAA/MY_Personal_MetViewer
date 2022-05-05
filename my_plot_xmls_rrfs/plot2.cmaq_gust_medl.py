@@ -24,13 +24,13 @@ else:
     verf_cycle_id=sys.argv[6]
     event_equal_flag = sys.argv[7]
 
-if stat_var == "tmp":
+if stat_var == "gust":
     plot_var = "cmaq_"+stat_var.lower()+"_time_series"
 else:
-    plot_var = "cmaq_tmp_"+stat_var.lower()
+    plot_var = "cmaq_gust_"+stat_var.lower()
 
 y_label=stat_var[0:2]+"(K)"
-title_var ="tmp_"+y_label
+title_var ="gust_"+y_label
 
 sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 00)
 edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 23)
@@ -114,7 +114,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <template>series_plot.R_tmpl</template>\n")
     xml.write("        <dep>\n")
     xml.write("            <dep1>\n")
-    xml.write("                <fcst_var name=\"TMP\">\n")
+    xml.write("                <fcst_var name=\"GUST\">\n")
     xml.write("                    <stat>ME</stat>\n")
     xml.write("                </fcst_var>\n")
     xml.write("            </dep1>\n")
@@ -181,7 +181,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("            </field>\n")
     xml.write("            <field equalize=\""+event_equal_flag+"\" name=\"fcst_lev\">\n")
     xml.write("                <set name=\"fcst_lev_3\">\n")
-    xml.write("                    <val>Z2</val>\n")
+    xml.write("                    <val>Z0</val>\n")
     xml.write("                </set>\n")
     xml.write("            </field>\n")
     xml.write("        </plot_fix>\n")

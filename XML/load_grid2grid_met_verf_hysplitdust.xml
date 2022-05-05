@@ -1,7 +1,7 @@
 <load_spec>
   <connection>
     <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com:3306</host>
-    <database>mv_hysplit_dust202204_grid2grid_metplus</database>
+    <database>mv_hysplit_dust202205_grid2grid_metplus</database>
     <user>rds_user</user>
     <password>rds_pwd</password>
     <management_system>aurora</management_system>
@@ -21,7 +21,7 @@
   <load_orank>true</load_orank>
   <force_dup_file>false</force_dup_file>
   <group>NCEP_hcHuang</group>
-  <description>Loading mv_hysplit_dust202204_grid2grid_metplus</description>
+  <description>Loading mv_hysplit_dust202205_grid2grid_metplus</description>
   <folder_tmpl>/base_dir/{type}</folder_tmpl>
     <load_val>
      <field name="type">

@@ -12,12 +12,12 @@ METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METv
 stat_var = "me"
 stat_var = "rmse"
 stat_var = "csi"
-stat_var = "tmp"
+stat_var = "gust"
 
-if stat_var == "tmp":
+if stat_var == "gust":
     plot_var = "cmaq_"+stat_var.lower()+"_time_series"
 else:
-    plot_var = "cmaq_tmp_"+stat_var.lower()
+    plot_var = "cmaq_gust_"+stat_var.lower()
 
 y_label="SFC Gust (m/s)"
 ### PASSED AGRUEMENTS

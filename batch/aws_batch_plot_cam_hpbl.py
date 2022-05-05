@@ -60,8 +60,10 @@ region = [ "CONUS", "WEST", "EAST", "SWC", "NWC", "NEC", "SEC""MDW", "NMT", "NPL
 region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
 vday=[ "day2" ]
 run_cycle = [ "12Z" ]
-region = [ "CONUS", "WEST", "EAST" ]
 region = [ "CONUS", "WESTsub", "EASTsub" ]
+region = [ "CONUS", "WEST", "EAST" ]
+region = [ "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
+           "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_hpbl_"+stat_var.lower()+".py"
