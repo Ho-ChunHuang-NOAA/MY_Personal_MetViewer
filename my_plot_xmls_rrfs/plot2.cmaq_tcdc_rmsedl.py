@@ -28,13 +28,13 @@ else:
     verf_cycle_id=sys.argv[6]
     event_equal_flag = sys.argv[7]
 
-if stat_var == "hpbl":
+if stat_var == "tcdc":
     plot_var = "cmaq_"+stat_var.lower()+"_time_series"
 else:
-    plot_var = "cmaq_hpbl_"+stat_var.lower()
+    plot_var = "cmaq_tcdc_"+stat_var.lower()
 
 y_label=stat_var[0:4]
-title_var ="hpbl_"+y_label
+title_var ="tcdc_"+y_label
 
 sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 00)
 edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 23)
@@ -118,7 +118,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <template>series_plot.R_tmpl</template>\n")
     xml.write("        <dep>\n")
     xml.write("            <dep1>\n")
-    xml.write("                <fcst_var name=\"HPBL\">\n")
+    xml.write("                <fcst_var name=\"TCDC\">\n")
     xml.write("                    <stat>RMSE</stat>\n")
     xml.write("                </fcst_var>\n")
     xml.write("            </dep1>\n")
@@ -185,7 +185,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("            </field>\n")
     xml.write("            <field equalize=\""+event_equal_flag+"\" name=\"fcst_lev\">\n")
     xml.write("                <set name=\"fcst_lev_3\">\n")
-    xml.write("                    <val>Z0</val>\n")
+    xml.write("                    <val>A1</val>\n")
     xml.write("                </set>\n")
     xml.write("            </field>\n")
     xml.write("        </plot_fix>\n")
@@ -196,14 +196,9 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("           <val label=\""+str(vhour)+"\" plot_val=\"\">"+str(vhour)+"0000</val>\n")
         vhour = vhour + vhour_inc
     xml.write("        </indep>\n")
-    xml.write("        <agg_stat>\n")
-    xml.write("            <agg_sl1l2>true</agg_sl1l2>\n")
-    xml.write("            <boot_repl>1</boot_repl>\n")
-    xml.write("            <boot_random_seed/>\n")
-    xml.write("            <boot_ci>perc</boot_ci>\n")
-    xml.write("            <eveq_dis>false</eveq_dis>\n")
-    xml.write("            <cache_agg_stat>false</cache_agg_stat>\n")
-    xml.write("        </agg_stat>\n")
+    xml.write("        <calc_stat>\n")
+    xml.write("            <calc_sl1l2>true</calc_sl1l2>\n")
+    xml.write("        </calc_stat>\n")
     xml.write("        <plot_stat>median</plot_stat>\n")
     xml.write("        <tmpl>\n")
     xml.write("            <data_file>"+label_area+"_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+header_date+".data</data_file>\n")
@@ -296,11 +291,11 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <show_signif>c(FALSE,FALSE)</show_signif>\n")
     xml.write("        <plot_disp>c(TRUE,TRUE)</plot_disp>\n")
     xml.write("        <colors>c(\"#0000ffFF\",\"#ff0000FF\")</colors>\n")
-    xml.write("        <pch>c(15,19)</pch>\n")
-    xml.write("        <type>c(\"b\",\"b\")</type>\n")
+    xml.write("        <pch>c(20,20)</pch>\n")
+    xml.write("        <type>c(\"l\",\"l\")</type>\n")
     xml.write("        <lty>c(1,1)</lty>\n")
     xml.write("        <lwd>c(2,2)</lwd>\n")
-    xml.write("        <con_series>c(0,0)</con_series>\n")
+    xml.write("        <con_series>c(1,1)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
     xml.write("        <legend>c(\"v150a\",\"v161a\")</legend>\n")

@@ -13,7 +13,7 @@
   <insert_size>1</insert_size>
   <mode_header_db_check>true</mode_header_db_check>
   <stat_header_db_check>true</stat_header_db_check>
-  <drop_indexes>false</drop_indexes>
+  <drop_indexes>true</drop_indexes>
   <apply_indexes>true</apply_indexes>
   <load_stat>true</load_stat>
   <load_mode>true</load_mode>

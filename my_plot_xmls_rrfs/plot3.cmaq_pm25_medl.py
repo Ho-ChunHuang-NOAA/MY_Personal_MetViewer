@@ -273,6 +273,8 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <caption_offset>3</caption_offset>\n")
     xml.write("        <caption_align>0.5</caption_align>\n")
     xml.write("        <ci_alpha>0.05</ci_alpha>\n")
+    xml.write("        <eqbound_low>-0.001</eqbound_low>\n")
+    xml.write("        <eqbound_high>0.001</eqbound_high>\n")
     xml.write("        <plot_ci>c(\"none\",\"none\",\"none\")</plot_ci>\n")
     xml.write("        <lines>\n")
     ## pink #ff00ff, black 000000, red ff0000, blue 0000ff
@@ -286,7 +288,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <type>c(\"l\",\"l\",\"l\")</type>\n")
     xml.write("        <lty>c(1,1,1)</lty>\n")
     xml.write("        <lwd>c(2,2,2)</lwd>\n")
-    xml.write("        <con_series>c(0,0,0)</con_series>\n")
+    xml.write("        <con_series>c(1,1,1)</con_series>\n")
     xml.write("        <order_series>c(1,2,3)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
     xml.write("        <legend>c(\"NAM-CMAQ\",\"v150a\",\"v161a\")</legend>\n")

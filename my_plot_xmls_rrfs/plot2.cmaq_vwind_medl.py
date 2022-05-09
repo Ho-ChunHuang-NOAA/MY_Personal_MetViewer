@@ -288,6 +288,8 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <caption_offset>3</caption_offset>\n")
     xml.write("        <caption_align>0.5</caption_align>\n")
     xml.write("        <ci_alpha>0.05</ci_alpha>\n")
+    xml.write("        <eqbound_low>-0.001</eqbound_low>\n")
+    xml.write("        <eqbound_high>0.001</eqbound_high>\n")
     xml.write("        <plot_ci>c(\"none\",\"none\")</plot_ci>\n")
     xml.write("        <lines>\n")
     ## pink #ff00ff, black 000000, red ff0000, blue 0000ff

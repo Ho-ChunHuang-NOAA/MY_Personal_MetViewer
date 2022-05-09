@@ -277,6 +277,8 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <caption_offset>3</caption_offset>\n")
     xml.write("        <caption_align>0.5</caption_align>\n")
     xml.write("        <ci_alpha>0.05</ci_alpha>\n")
+    xml.write("        <eqbound_low>-0.001</eqbound_low>\n")
+    xml.write("        <eqbound_high>0.001</eqbound_high>\n")
     xml.write("        <plot_ci>c(\"none\",\"none\",\"none\")</plot_ci>\n")
     xml.write("        <show_signif>c(FALSE,FALSE,FALSE)</show_signif>\n")
     xml.write("        <plot_disp>c(TRUE,TRUE,TRUE)</plot_disp>\n")
