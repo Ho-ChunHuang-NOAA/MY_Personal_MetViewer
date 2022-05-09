@@ -64,7 +64,7 @@ region = [ "WESTsub", "EASTsub" ]
 region = [ "CONUS", "WESTsub", "EASTsub" ]
 region = [ "CONUS", "WEST", "EAST" ]
 region = [ "CONUS" ]
-region = [ "WEST", "EAST", "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
+region = [ "CONUS", "WEST", "EAST", "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
            "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_rrfs"
