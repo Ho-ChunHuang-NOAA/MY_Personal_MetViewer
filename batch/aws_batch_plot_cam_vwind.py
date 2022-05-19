@@ -65,10 +65,14 @@ region = [ "WESTsub", "EASTsub" ]
 region = [ "CONUS", "WEST", "EAST" ]
 region = [ "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
            "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
+region = [ "CONUS", "WEST", "EAST", "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
+           "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
+region = [ "CONUS" ]
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_vwind_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot2.cmaq_vwind_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot.cmaq_vwind_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_vwind_"+stat_var.lower()+".xml"
 scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
