@@ -4,8 +4,8 @@ import shutil
 import os 
 import subprocess
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/Mallory.Row/VRFY/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
 
 ### PASSED AGRUEMENTS
 ### mv_database = sys.argv[1]

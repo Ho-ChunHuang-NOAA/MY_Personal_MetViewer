@@ -5,11 +5,11 @@ import os
 import subprocess
 import fnmatch
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
-MODIS_dust_obs_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/aod_dust/conc/aquamodis."
-MET_verif_out_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/com/verif/prod/hysplitdust."
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/Mallory.Row/VRFY/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+MODIS_dust_obs_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/aod_dust/conc/aquamodis."
+MET_verif_out_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/com/verif/prod/hysplitdust."
 
 obs_fhead = "MYDdust.aod_conc.v6.3.4."
 obs_ftail = ".grib"
@@ -47,7 +47,7 @@ title_time_format = "%m%d"
 title_hour_format = "%H"
 database_date_format = "%Y%m"
 database_date = sdate.strftime(database_date_format)
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead_daily_"+database_date
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead_daily_"+database_date
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
@@ -248,7 +248,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <cex>1</cex>\n")
     xml.write("        <title_weight>2</title_weight>\n")
     xml.write("        <title_size>1.4</title_size>\n")
-    xml.write("        <title_offset>-2</title_offset>\n")
+    xml.write("        <title_offset>0</title_offset>\n")
     xml.write("        <title_align>0.5</title_align>\n")
     xml.write("        <xtlab_orient>3</xtlab_orient>\n")
     xml.write("        <xtlab_perp>0.5</xtlab_perp>\n")
@@ -286,7 +286,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_offset>1</y2lab_offset>\n")
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
-    xml.write("        <legend_inset>c(0,-0.25)</legend_inset>\n")
+    xml.write("        <legend_inset>c(1,0.9)</legend_inset>\n")
     xml.write("        <legend_ncol>1</legend_ncol>\n")
     xml.write("        <legend_size>1</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")
@@ -299,10 +299,10 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <show_signif>c(FALSE)</show_signif>\n")
     xml.write("        <plot_disp>c(TRUE)</plot_disp>\n")
     xml.write("        <colors>c(\"#ff0000FF\")</colors>\n")
-    xml.write("        <pch>c(19)</pch>\n")
-    xml.write("        <type>c(\"b\")</type>\n")
+    xml.write("        <pch>c(20)</pch>\n")
+    xml.write("        <type>c(\"h\")</type>\n")
     xml.write("        <lty>c(1)</lty>\n")
-    xml.write("        <lwd>c(2)</lwd>\n")
+    xml.write("        <lwd>c(10)</lwd>\n")
     xml.write("        <con_series>c(1)</con_series>\n")
     xml.write("        <order_series>c(1)</order_series>\n")
     xml.write("        <plot_cmd/>\n")

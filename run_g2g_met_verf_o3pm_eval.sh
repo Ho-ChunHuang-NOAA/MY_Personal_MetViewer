@@ -33,10 +33,10 @@ else
    exit
 fi
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-DATA_DIR=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/com/verif
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/com/verif
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_${RUN}.xml

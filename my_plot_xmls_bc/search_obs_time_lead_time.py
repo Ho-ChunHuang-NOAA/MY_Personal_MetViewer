@@ -6,10 +6,10 @@ import subprocess
 import fnmatch
 
 current=os.getcwd()
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
-MOIDS_dust_obs_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/aod_dust/conc/aquamodis."
-MET_verif_out_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/com/verif/prod/hysplitdust."
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+MOIDS_dust_obs_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/aod_dust/conc/aquamodis."
+MET_verif_out_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/com/verif/prod/hysplitdust."
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead"
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)

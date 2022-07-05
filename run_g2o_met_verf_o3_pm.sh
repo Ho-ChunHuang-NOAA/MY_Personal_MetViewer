@@ -1,26 +1,21 @@
-#!/bin/sh
-module load prod_util/1.1.6
-declare -a exp=( pm_prod pm_para6d pm_v150a)
-declare -a exp=( aqm_prod aqm_para6d aqm_v150a pm_prod pm_para6d pm_v150a)
-FIRSTDAY=$2
-LASTDAY=$3
-FIRSTDAY=20200927
-LASTDAY=20201007
-TIME_ID1=`echo ${FIRSTDAY} | cut -c1-6`
-TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
-# if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
-#    echo "First day ${TIME_ID1} and last day ${TIME_ID2} are not belong to the same month"
-#    exit
-# fi
-TIME_ID1=oct20fire
-verif_type=g2o_met_verf_cmaqo3pm
-met_datbase=mv_${verif_type}_${TIME_ID1}
-load_datbase_template=load_${verif_type}.base
-load_datbase_xml=load_${verif_type}.xml
-MSG="$0 new or add database [new|add]"
-if [ $# -lt 1 ]; then
-   echo ${MSG}
+#!/bin/bash
+module load prod_util
+declare -a exp=( prod )
+declare -a exp=( prod v70a1 v70b1 )
+MSG="$0 new/add beg_date end_date"
+TODAY=`date +%Y%m%d`
+if [ $# -eq 0 ]; then
+    echo ${MSG}
    exit
+elif [ $# -eq 1 ]; then
+    FIRSTDAY=${TODAY}
+    LASTDAY=${TODAY}
+elif [ $# -eq 2 ]; then
+    FIRSTDAY=$2
+    LASTDAY=$2
+else
+    FIRSTDAY=$2
+    LASTDAY=$3
 fi
 flag_new=$1
 if [ "${flag_new}" == "new" ]; then  
@@ -33,37 +28,75 @@ else
    exit
 fi
 
+TIME_ID1=`echo ${FIRSTDAY} | cut -c1-6`
+TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
+if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
+    echo "First day ${TIME_ID1} and last day ${TIME_ID2} are not belong to the same month"
+    exit
+fi
+## TIME_ID1=sep20
+database=meteor
+database=chem
+if [ "${database}" == "chem" ]; then
+    verif_var="o3pm"
+    DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm
+elif [ "${database}" == "meteor" ]; then
+    verif_var="cam"
+    DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam
+fi
+verif_type=g2o_met
+load_datbase_template=load_${verif_type}.base
+MSG="$0 new or add database [new|add]"
+if [ $# -lt 1 ]; then
+   echo ${MSG}
+   exit
+fi
 hl=`hostname | cut -c1`
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-## DATA_DIR=/gpfs/${phase12_id}p2/ptmp/Ho-Chun.Huang/verif
-## DATA_DIR=/gpfs/${phase12_id}d3/emc/meso/noscrub/Ho-Chun.Huang/com2/aqm
-DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Perry.Shafran/metplus_aq/aqm/stat
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
-LOAD_DIR=${BASE_DIR}/verif
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_aod.xml
 ##
-if [ -d ${LOAD_DIR} ]; then /bin/rm -rf ${LOAD_DIR}/* ; fi
-mkdir -p ${LOAD_DIR}
+for i in "${exp[@]}"; do
+    BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws_${verif_var}_${i}
+    mkdir -p ${BASE_DIR}
 
-cd ${LOAD_DIR}
-NOW=${FIRSTDAY}
-while [ ${NOW} -le ${LASTDAY} ]; do
-   for i in "${exp[@]}"; do
-       cp ${DATA_DIR}/${i}/*${NOW}* .
-   done 
-   cdate=${NOW}"00"
-   NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
-done
+    TMP_DIR=${BASE_DIR}/tmp
+    if [ -d ${TMP_DIR} ]; then /bin/rm -rf ${TMP_DIR}/* ; fi
+    mkdir -p ${TMP_DIR}
+
+    sub_dir=verif_${verif_var}_${i}
+    LOAD_DIR=${BASE_DIR}/${sub_dir}
+    if [ -d ${LOAD_DIR} ]; then /bin/rm -rf ${LOAD_DIR}/* ; fi
+    mkdir -p ${LOAD_DIR}
+    cd ${LOAD_DIR}
+
+    capexp=`echo ${i} | tr '[:lower:]' '[:upper:]'`
+    met_datbase=mv_${verif_type}_${verif_var}_${i}_${TIME_ID1}
+    load_datbase_xml=load_${verif_type}_${verif_var}_${i}_${TIME_ID1}.xml
+    NOW=${FIRSTDAY}
+    while [ ${NOW} -le ${LASTDAY} ]; do
+        if [ "${database}" == "chem" ]; then
+            cp ${DATA_DIR}/${NOW}/${capexp}_AQ* .
+            cp ${DATA_DIR}/${NOW}/${capexp}_PM* .
+            if [ "${capexp}" == "PROD" ]; then
+                cp ${DATA_DIR}/${NOW}/${capexp}_BC_AQ* .
+                cp ${DATA_DIR}/${NOW}/${capexp}_BC_PM* .
+            fi
+        elif [ "${database}" == "meteor" ]; then
+            cp ${DATA_DIR}/${NOW}/${capexp}_CAM_* .
+        fi
+        cdate=${NOW}"00"
+        NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
+    done 
 
 ## $SCRIPT/mv_create_db_on_aws.sh ho-chun.huang mv_grid2grid_met_verf_aod
-sed -e "s!xxdatabasexx!${met_datbase}!" -e "s!xxnewaddxx!${NEW_ADD}!" ${XML}/${load_datbase_template} > ${XML}/${load_datbase_xml}
-if [ "${flag_new}" == "new" ]; then  
-   $SCRIPT/mv_create_db_on_aws.sh ho-chun.huang ${met_datbase}
-   echo "Create database done!"
-fi
+    sed -e "s!xxTYPExx!${sub_dir}!" -e "s!xxdatabasexx!${met_datbase}!" -e "s!xxnewaddxx!${NEW_ADD}!" ${XML}/${load_datbase_template} > ${XML}/${load_datbase_xml}
+    if [ "${flag_new}" == "new" ]; then  
+       $SCRIPT/mv_create_db_on_aws.sh ho-chun.huang ${met_datbase}
+       echo "Create database done!"
+    fi
 
-$SCRIPT/mv_load_to_aws.sh ho-chun.huang ${BASE_DIR} ${XML}/${load_datbase_xml}
-
+    $SCRIPT/mv_load_to_aws.sh ho-chun.huang ${BASE_DIR} ${XML}/${load_datbase_xml}
+done

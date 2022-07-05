@@ -5,9 +5,11 @@ import os
 import subprocess
 import fnmatch
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
+user=os.environ['USER']
+
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "medl"
 
@@ -50,7 +52,7 @@ if cdate_beg == cdate_end:
    figure_date = sdate.strftime(database_date_format)
 else:
    figure_date = header_date
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead_"+database_date
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead_"+database_date
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
@@ -58,8 +60,8 @@ os.makedirs(tmp_data_dir)
 ymax="120.0"
 ymin="0.0"
 ybuf="0.1"
-models = [ "V150A", "V161A" ]
-lend_mdl = [ "GFS-NAM", "v161-a" ]
+models = [ "V70A1", "V70B1" ]
+lend_mdl = [ "v70-a1", "v70-b1" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -97,7 +99,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_cam_aug19v150a,mv_g2o_met_cam_aug19v161a</database>\n")
+    xml.write("        <database>mv_g2o_met_cam_v70a1_202206,mv_g2o_met_cam_v70b1_202206</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -288,8 +290,6 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <caption_offset>3</caption_offset>\n")
     xml.write("        <caption_align>0.5</caption_align>\n")
     xml.write("        <ci_alpha>0.05</ci_alpha>\n")
-    xml.write("        <eqbound_low>-0.001</eqbound_low>\n")
-    xml.write("        <eqbound_high>0.001</eqbound_high>\n")
     xml.write("        <plot_ci>c(\"none\",\"none\")</plot_ci>\n")
     xml.write("        <lines>\n")
     ## pink #ff00ff, black 000000, red ff0000, blue 0000ff
@@ -306,7 +306,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd>abline(h=0, col=\"black\", lwd=2, lty=2)</plot_cmd>\n")
-    xml.write("        <legend>c(\"v150a\",\"v161a\")</legend>\n")
+    xml.write("        <legend>c(\"v70a1\",\"v70b1\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 #    xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

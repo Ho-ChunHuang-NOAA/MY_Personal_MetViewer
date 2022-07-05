@@ -25,7 +25,7 @@
   <folder_tmpl>/base_dir/{type}</folder_tmpl>
     <load_val>
      <field name="type">
-       <val>verif</val>
+       <val>xxTYPExx</val>
      </field>
     </load_val>
   <load_xml>true</load_xml>

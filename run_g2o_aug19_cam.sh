@@ -6,8 +6,8 @@ declare -a exp=( PROD PROD_BC )
 declare -a exp=( V161A )
 FIRSTDAY=$2
 LASTDAY=$3
-FIRSTDAY=20190828
-LASTDAY=20190828
+FIRSTDAY=20190801
+LASTDAY=20190901
 TIME_ID1=`echo ${FIRSTDAY} | cut -c1-6`
 TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
 # if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
@@ -15,7 +15,7 @@ TIME_ID2=`echo ${LASTDAY} | cut -c1-6`
 #    exit
 # fi
 TIME_ID1=aug19
-TIME_ID1=aug19v161ahc
+TIME_ID1=aug19v161a
 verif_type=g2o_met_cam
 met_datbase=mv_${verif_type}_${TIME_ID1}
 load_datbase_template=load_${verif_type}.base
@@ -38,10 +38,10 @@ fi
 
 hl=`hostname | cut -c1`
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_cam/stat/cam
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_aod.xml
@@ -53,7 +53,7 @@ mkdir -p ${LOAD_DIR}
 #  Aug 2019 PROD statistic from Perry's
 #
 cd ${LOAD_DIR}
-if [ 1 -eq 1 ]; then
+if [ 1 -eq 2 ]; then
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do
        for i in "${exp[@]}"; do
@@ -63,7 +63,7 @@ if [ 1 -eq 1 ]; then
        NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
     done
 else
-    cp /gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_cam/stat/cam/v161a/* .
+    cp /lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam/v161a/* .
 fi
 
 ## $SCRIPT/mv_create_db_on_aws.sh ho-chun.huang mv_grid2grid_met_verf_aod

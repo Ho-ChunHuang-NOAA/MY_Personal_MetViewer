@@ -14,9 +14,9 @@ if [ ${FIRSTMON} -gt 999999 ] || [ ${LASTMON} -gt 999999 ]; then
    exit
 fi
 declare -a dayofmon=( 31 28 31 30 31 30 31 31 30 31 30 31 )
-logdir=/gpfs/dell2/ptmp/Ho-Chun.Huang/batch.logs
+logdir=/lfs/h2/emc/ptmp/"+os.environ['USER']+"/batch.logs
 NOW=${FIRSTMON}
-script_dir=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/batch
+script_dir=/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/batch
 script_name=aws_batch_plot_cmaq_aod.py
 cd ${script_dir}
 script_name=aws_batch_plot_cmaq_aod_daily.py

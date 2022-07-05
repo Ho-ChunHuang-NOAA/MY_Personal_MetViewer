@@ -25,9 +25,9 @@ database_year = sdate.strftime(database_year_format)
 
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/verification/noscrub/emc.metplus/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
 if flag_vday == "all":
    vday=[ "day1", "day2" ]
@@ -47,17 +47,19 @@ elif stat_var == "medl":
    vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
+           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD" ] 
 region = [ "CONUS", "WEST", "SWC", "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "NWC" ]
 region = [ "NWC" ]
+region = [ "GMC", "GRB", "MEX", "LMV"  ]
+region = [ "GRB", "SPL", "SWD", "MEX"  ]
 ## vday=[ "day2" ]
 run_cycle = [ "12Z" ]
-xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls"
+xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls"
 xml_gen_python_name = "plot.cmaq_pm25_"+stat_var.lower()+".py"
 xml_gen_python_name = "icmaq_oct20fire.py"
 plot_xml_file = "plot_cmaq_pm25_"+stat_var.lower()+".xml"
-scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 checkfile=os.path.join(xml_data_dir,xml_gen_python_name)
 if not os.path.exists(checkfile):
@@ -65,8 +67,8 @@ if not os.path.exists(checkfile):
     sys.exit()
 
 batch_script_name = "mv_batch_on_aws.sh"
-tmp_data_dir = "/gpfs/dell2/stmp/Ho-Chun.Huang/run_batch_plot_"+stat_var.lower()
-figure_dir = "/gpfs/dell2/stmp/Ho-Chun.Huang/figure_"+stat_var.lower()+"_"+database_date
+tmp_data_dir = "/lfs/h2/emc/stmp/"+os.environ['USER']+"/run_batch_plot_"+stat_var.lower()
+figure_dir = "/lfs/h2/emc/stmp/"+os.environ['USER']+"/figure_"+stat_var.lower()+"_"+database_date
 if os.path.exists(figure_dir):
     shutil.rmtree(figure_dir)
 os.makedirs(figure_dir)

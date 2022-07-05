@@ -6,10 +6,10 @@ LASTDAY=$2
 FIRSTDAY=20190804
 LASTDAY=20190831
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-DATA_DIR=/gpfs/tp2/ptmp/Ho-Chun.Huang/verif
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/verif
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+DATA_DIR=/gpfs/tp2/ptmp/${USER}/verif
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/verif
 mkdir -p ${BASE_DIR}
 
 cd ${BASE_DIR}

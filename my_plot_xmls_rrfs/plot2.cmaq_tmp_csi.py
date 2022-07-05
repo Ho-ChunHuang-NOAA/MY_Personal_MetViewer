@@ -5,9 +5,11 @@ import os
 import subprocess
 import fnmatch
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
+user=os.environ['USER']
+
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "csi"
 
@@ -47,7 +49,7 @@ if cdate_beg == cdate_end:
    figure_date = sdate.strftime(database_date_format)
 else:
    figure_date = header_date
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead"
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead"
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
@@ -58,7 +60,7 @@ ybuf="0.04"
 ymin="0.0"
 ymax="0.8"
 
-models = [ "V150A", "V161A" ]
+models = [ "V70A1", "V70B1" ]
 lend_mdl = [ "v150-a", "v161-a" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
@@ -102,7 +104,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     if 1 == 1:
         xml.write("        <host>rds_host:3306</host>\n")
-        xml.write("        <database>mv_g2o_met_cam_aug19v150a,mv_g2o_met_cam_aug19v161a</database>\n")
+        xml.write("        <database>mv_g2o_met_cam_v70a1_202206,mv_g2o_met_cam_v70b1_202206</database>\n")
         xml.write("        <user>rds_user</user>\n")
         xml.write("        <password>rds_pwd</password>\n")
         ### xml.write("        <management_system>aurora</management_system>\n")
@@ -117,7 +119,7 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("    </folders>\n")
     else:
         xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
-        xml.write("        <database>mv_g2o_met_cam_aug19v150a,mv_g2o_met_cam_aug19v161a</database>\n")
+        xml.write("        <database>mv_g2o_met_cam_v70a1_202206,mv_g2o_met_cam_v70b1_202206</database>\n")
         xml.write("        <user>******</user>\n")
         xml.write("        <password>******</password>\n")
         xml.write("        <management_system>aurora</management_system>\n")
@@ -319,7 +321,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"v150a\",\"v161a\")</legend>\n")
+    xml.write("        <legend>c(\"v70a1\",\"v70b1\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
 ##     xml.write("        <y1_lim>c()</y1_lim>\n")

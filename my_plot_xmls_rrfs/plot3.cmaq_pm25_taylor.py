@@ -5,9 +5,11 @@ import os
 import subprocess
 import fnmatch
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
+user=os.environ['USER']
+
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "taylor"
 
@@ -47,7 +49,7 @@ if cdate_beg == cdate_end:
    figure_date = sdate.strftime(database_date_format)
 else:
    figure_date = header_date
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead_"+database_date
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead_"+database_date
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
@@ -56,8 +58,8 @@ ybuf="0.04"
 ymin="0.04"
 ymax="0.5"
 
-models = [ "PROD", "V150A", "V161A" ]
-lend_mdl = [ "NAM-CMAQ", "v150-a", "v161-a" ]
+models = [ "PROD", "V70A1", "V70B1" ]
+lend_mdl = [ "GFS-CMAQ", "v70-a1", "v70-b1" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 csi_thresh = [ "0.3", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0" ]
@@ -95,7 +97,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a,mv_g2o_met_icmaq_aug19v150a</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3pm_v70b1_202206</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")
@@ -267,7 +269,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <plot_ci>c(\"none\",\"none\",\"none\")</plot_ci>\n")
     xml.write("        <show_signif>c(FALSE,FALSE,FALSE)</show_signif>\n")
     xml.write("        <plot_disp>c(TRUE,TRUE,TRUE)</plot_disp>\n")
-    xml.write("        <colors>c(\"#006400FF\",\"#0000ffFF\",\"#ff0000FF\")</colors>\n")
+    xml.write("        <colors>c(\"#0000ffFF\",\"#006400FF\",\"#ff0000FF\")</colors>\n")
     xml.write("        <pch>c(19,19,19)</pch>\n")
     xml.write("        <type>c(\"b\",\"b\",\"b\")</type>\n")
     xml.write("        <lty>c(1,1,1)</lty>\n")
@@ -275,7 +277,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(1,1,1)</con_series>\n")
     xml.write("        <order_series>c(1,2,3)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v150a\",\"v161a\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70a1\",\"v70b1\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
     xml.write("        <y1_lim>c()</y1_lim>\n")

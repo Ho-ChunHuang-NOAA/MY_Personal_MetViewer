@@ -5,11 +5,11 @@ import os
 import subprocess
 import fnmatch
 
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
-GOES_aod_obs_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/GOES16_AOD/REGRID/aqm."
-MET_verif_out_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/com/verif/prod/cmaqaod."
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+GOES_aod_obs_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/GOES16_AOD/REGRID/aqm."
+MET_verif_out_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/com/verif/prod/cmaqaod."
 
 obs_fhead = "OBS_AOD_aqm_g16_"
 obs_ftail = ".nc"
@@ -50,7 +50,7 @@ title_time_format = "%m%d"
 title_hour_format = "%H"
 database_date_format = "%Y%m"
 database_date = sdate.strftime(database_date_format)
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead_"+database_date
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead_"+database_date
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)

@@ -23,9 +23,9 @@ database_date = sdate.strftime(database_date_format)
 
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
-###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/verification/noscrub/emc.metplus/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/"+os.environ['USER']+"/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
 region = [ "CONUS", "EAST", "WEST", "NEC", "SEC", "APL",
          "LMV", "MDW", "NMT", "NPL", "SMT", "SPL" ] 
@@ -34,13 +34,13 @@ region = [ "NEUS" ]
 region = [ "SEUS" ]
 region = [ "SWUS" ]
 region = [ "NWUS" ]
-xml_data_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/my_plot_xmls"
+xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls"
 xml_gen_python_name = "plot3.cmaq_aod_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_aod_"+stat_var.lower()+".xml"
-scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 batch_script_name = "mv_batch_on_aws.sh"
-tmp_data_dir = "/gpfs/dell2/stmp/Ho-Chun.Huang/run_batch_plot_"+stat_var.lower()
-figure_dir = "/gpfs/dell2/stmp/Ho-Chun.Huang/figure_"+stat_var.lower()+"_"+database_date
+tmp_data_dir = "/lfs/h2/emc/stmp/"+os.environ['USER']+"/run_batch_plot_"+stat_var.lower()
+figure_dir = "/lfs/h2/emc/stmp/"+os.environ['USER']+"/figure_"+stat_var.lower()+"_"+database_date
 if os.path.exists(figure_dir):
     shutil.rmtree(figure_dir)
 os.makedirs(figure_dir)
