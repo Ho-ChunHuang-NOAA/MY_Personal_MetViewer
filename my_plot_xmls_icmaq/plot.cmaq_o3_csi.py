@@ -217,7 +217,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <vert_plot>false</vert_plot>\n")
     xml.write("        <x_reverse>false</x_reverse>\n")
     xml.write("        <num_stats>false</num_stats>\n")
-    xml.write("        <indy1_stag>true</indy1_stag>\n")
+    xml.write("        <indy1_stag>false</indy1_stag>\n")
     xml.write("        <indy2_stag>false</indy2_stag>\n")
     xml.write("        <grid_on>true</grid_on>\n")
     xml.write("        <sync_axes>false</sync_axes>\n")

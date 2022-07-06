@@ -57,7 +57,7 @@ os.makedirs(tmp_data_dir)
 
 ybuf="0.04"
 
-models = [ "PROD", "V161A" ]
+models = [ "GEFSD", "PROD" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 csi_thresh = [ "50", "60", "65", "70", "75", "85", "105", "125", "150" ]
@@ -95,7 +95,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_prod_202207,mv_g2o_met_o3pm_gefsd_202206,mv_g2o_met_o3pm_gefsd_202207</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")
@@ -284,7 +284,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <plot_ci>c(\"none\",\"none\")</plot_ci>\n")
     xml.write("        <show_signif>c(FALSE,FALSE)</show_signif>\n")
     xml.write("        <plot_disp>c(TRUE,TRUE)</plot_disp>\n")
-    xml.write("        <colors>c(\"#006400FF\",\"#ff0000FF\")</colors>\n")
+    xml.write("        <colors>c(\"#ff0000FF\",\"#0000ffFF\")</colors>\n")
     xml.write("        <pch>c(19,19)</pch>\n")
     xml.write("        <type>c(\"b\",\"b\")</type>\n")
     xml.write("        <lty>c(1,1)</lty>\n")
@@ -293,7 +293,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <order_series>c(1,2)</order_series>\n")
     ## xml.write("        <plot_cmd>points(1,1,pch=19,col=\"magenta\",cex=2)</plot_cmd>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"NAM-CMAQ\",\"v161a\")</legend>\n")
+    xml.write("        <legend>c(\"GEFSD\",\"PROD\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
     xml.write("        <y1_lim>c()</y1_lim>\n")

@@ -1,5 +1,0 @@
-    print("you must set 7 arguments as area title_area [day1|day2] start_date end_date run_cycle even_equal_flag")
-    xml.write("            <field equalize=\""+even_equal_flag+"\" name=\"vx_mask\">\n")
-    xml.write("            <field equalize=\""+even_equal_flag+"\" name=\"fcst_lead\">\n")
-    xml.write("            <field equalize=\""+even_equal_flag+"\" name=\"fcst_init_beg\">\n")
-    xml.write("        <event_equal>"+even_equal_flag+"</event_equal>\n")
