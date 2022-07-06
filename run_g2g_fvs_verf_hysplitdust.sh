@@ -39,7 +39,7 @@ fi
 
 SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
 XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
-## DATA_DIR=/gpfs/${phase12_id}p2/ptmp/${USER}/verif
+## DATA_DIR=/lfs/h2/emc/ptmp/${USER}/verif
 DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/vsdb/grid2grid/dust
 BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif

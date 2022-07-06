@@ -55,7 +55,7 @@ NOW=${FIRSTDAY}
 while [ ${NOW} -le ${LASTDAY} ]; do
     YM=`echo ${NOW} | cut -c1-6`
     if [ "${YM}" != "${YM0}" ]; then break; fi
-    DATA_DIR=/gpfs/dell2/emc/verification/noscrub/${USER}/metplus_aq/stat/aqm/${NOW}
+    DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm/${NOW}
     cp ${DATA_DIR}/${EXP}* .
     cdate=${NOW}"00"
     NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)

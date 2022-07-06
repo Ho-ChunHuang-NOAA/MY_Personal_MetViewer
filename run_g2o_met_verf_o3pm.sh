@@ -65,9 +65,9 @@ if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
 fi
 echo " Process load_aws_database for ${envir} from ${FIRSTDAY} to ${LASTDAY}"
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif
 verif_type=g2o_met_verf_o3pm
 
@@ -106,7 +106,7 @@ NOW=${FIRSTDAY}
 while [ ${NOW} -le ${LASTDAY} ]; do
     YM=`echo ${NOW} | cut -c1-6`
     if [ "${YM}" != "${YM0}" ]; then break; fi
-    DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_aq/stat/aqm/${NOW}
+    DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm/${NOW}
     cp ${DATA_DIR}/${EXP}* .
     cdate=${NOW}"00"
     NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
@@ -136,7 +136,7 @@ if [ "${flag_same_month}" == "no" ]; then
     while [ ${NOW} -le ${LASTDAY} ]; do
         YM=`echo ${NOW} | cut -c1-6`
         if [ "${YM}" != "${YM0}" ]; then break; fi
-        DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_aq/stat/aqm/${NOW}
+        DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm/${NOW}
         cp ${DATA_DIR}/${EXP}* .
         cdate=${NOW}"00"
         NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)

@@ -38,10 +38,10 @@ fi
 
 hl=`hostname | cut -c1`
 
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_cam/stat/cam
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_aod.xml
@@ -63,7 +63,7 @@ if [ 1 -eq 1 ]; then
        NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
     done
 else
-    cp /gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_cam/stat/cam/v161a/* .
+    cp /lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam/v161a/* .
 fi
 
 ## $SCRIPT/mv_create_db_on_aws.sh ho-chun.huang mv_grid2grid_met_verf_aod
