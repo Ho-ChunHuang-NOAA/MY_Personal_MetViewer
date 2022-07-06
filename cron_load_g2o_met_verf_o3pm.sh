@@ -34,9 +34,9 @@ else
 fi
 
 ##
-SCRIPT=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script
-XML=/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/XML
-BASE_DIR=/gpfs/dell2/stmp/Ho-Chun.Huang/load_to_aws
+SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
+XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
 LOAD_DIR=${BASE_DIR}/verif
 if [ -d ${LOAD_DIR} ]; then /bin/rm -rf ${LOAD_DIR}; fi
 mkdir -p ${LOAD_DIR}
@@ -55,7 +55,7 @@ NOW=${FIRSTDAY}
 while [ ${NOW} -le ${LASTDAY} ]; do
     YM=`echo ${NOW} | cut -c1-6`
     if [ "${YM}" != "${YM0}" ]; then break; fi
-    DATA_DIR=/gpfs/dell2/emc/verification/noscrub/Ho-Chun.Huang/metplus_aq/stat/aqm/${NOW}
+    DATA_DIR=/gpfs/dell2/emc/verification/noscrub/${USER}/metplus_aq/stat/aqm/${NOW}
     cp ${DATA_DIR}/${EXP}* .
     cdate=${NOW}"00"
     NOW=$(${NDATE} +24 ${cdate}| cut -c1-8)
