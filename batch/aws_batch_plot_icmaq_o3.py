@@ -57,7 +57,6 @@ region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC
            "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 region = [ "CONUS", "WEST", "SWC", "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "SWC", "NWC", "NEC", "SEC""MDW", "NMT", "NPL" ]
-region = [ "CONUS" ]
 region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
 vday=[ "day2" ]
 run_cycle = [ "12Z" ]
@@ -65,10 +64,11 @@ region = [ "CONUS", "WEST", "EAST" ]
 region = [ "GMC", "GRB", "LMV"  ]
 region = [ "SPL", "SWD" ]
 region = [ "CONUS", "WEST", "EAST" ]
-xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
+region = [ "CONUS" ]
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
-xml_gen_python_name = "plot3.cmaq_o3_"+stat_var.lower()+".py"
+xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot2.cmaq_o3_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot3.cmaq_o3_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_o3_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
