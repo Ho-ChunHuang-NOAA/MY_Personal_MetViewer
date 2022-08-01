@@ -22,14 +22,14 @@ old_ver='"NAM-CMAQ'
 old_ver='"GFS-CMAQ'
 old_ver='"PROD", "v70-a1"'
 new_ver='"GFS-CMAQ", "v70-a1"'
+old_ver='\\\"#006400FF\\\",\\\"#0000ffFF\\\"'
+new_ver='\\\"#0000ffFF\\\",\\\"#006400FF\\\"'
 old_ver='mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v161a,mv_g2o_met_icmaq_aug19v150a'
 new_ver='mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3pm_v70b1_202206'
 old_ver='mv_g2o_met_icmaq_aug19,mv_g2o_met_icmaq_aug19v150a,mv_g2o_met_icmaq_aug19v161a'
 new_ver='mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3pm_v70b1_202206'
-old_ver='\\\"#006400FF\\\",\\\"#0000ffFF\\\"'
-new_ver='\\\"#0000ffFF\\\",\\\"#006400FF\\\"'
-old_ver="\"+user+\"\/"
-new_ver="\"+os.environ\[\'USER\'\]+\"\/"
+old_ver='mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3pm_v70b1_202206'
+new_ver='mv_g2o_met_o3pm_prod_202207,mv_g2o_met_o3pm_v70a1_202207,mv_g2o_met_o3pm_v70b1_202207'
 for i in "${shfile[@]}"
 do
    echo ${i}
