@@ -51,8 +51,6 @@ if stat_var == "rmsedl":
 elif stat_var == "medl":
    vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 region = [ "CONUS", "WEST", "SWC", "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "NWC" ]
 ## vday=[ "day2" ]
@@ -68,6 +66,9 @@ region = [ "GMC", "GRB", "LMV"  ]
 region = [ "SPL", "SWD" ]
 region = [ "CONUS", "WEST", "EAST" ]
 region = [ "CONUS" ]
+region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
+           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
+region = [ "SWC", "SWD", "SMT" ]
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot2.cmaq_pmave_"+stat_var.lower()+".py"

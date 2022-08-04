@@ -68,6 +68,7 @@ region = [ "CONUS", "WEST", "EAST", "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "
            "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
 region = [ "CONUS" ]
 region = [ "GRB", "GMC", "LMV", "SPL", "SWD", "MEX"  ]
+region = [ "SWC", "SWD", "SMT" ]
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_gust_"+stat_var.lower()+".py"
