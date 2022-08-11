@@ -53,8 +53,6 @@ elif stat_var == "medl":
    vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
 run_cycle = [ "12Z" ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 ## vday=[ "day2" ]
 run_cycle = [ "12Z" ]
 region = [ "CONUS", "WEST", "SWC", "NWC" ]
@@ -63,6 +61,8 @@ region = [ "EAST" ]
 region = [ "CONUS" ]
 region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
 region = [ "GMC", "GRB", "LMV"  ]
+region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
+           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ]
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_ozmax1_"+stat_var.lower()+".py"
