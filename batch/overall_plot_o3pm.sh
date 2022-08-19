@@ -12,5 +12,6 @@ done
 declare -a o3pm_var=( ozmax8 pmave )
 for i in "${o3pm_var[@]}"; do
     python aws_batch_plot_icmaq_${i}.py csi ${select_day} ${beg_date} ${end_date}
+    python aws_batch_plot_icmaq_${i}.py taylor ${select_day} ${beg_date} ${end_date}
     python aws_batch_plot_icmaq_${i}.py performance ${select_day} ${beg_date} ${end_date}
 done
