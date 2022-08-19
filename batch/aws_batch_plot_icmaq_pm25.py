@@ -45,11 +45,15 @@ elif flag_vday == "day3":
 else:
     print("verification verify day "+vday+" not recongized.")
     exit()
+
+vday=[ "day2" ]
+
 ## For diurnal cycle plot fix day as the # of fcst day
 if stat_var == "rmsedl":
-   vday=[ "day2" ]
+   vday=[ "day3" ]
 elif stat_var == "medl":
-   vday=[ "day2" ]
+   vday=[ "day3" ]
+
 run_cycle = [ "06Z", "12Z" ]
 region = [ "CONUS", "WEST", "SWC", "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "NWC" ]
@@ -61,7 +65,6 @@ region = [ "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "NWC" ]
 region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
 run_cycle = [ "12Z" ]
-vday=[ "day2" ]
 region = [ "GMC", "GRB", "LMV"  ]
 region = [ "SPL", "SWD" ]
 region = [ "CONUS", "WEST", "EAST" ]

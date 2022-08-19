@@ -98,7 +98,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_cam_v70a1_202206,mv_g2o_met_cam_v70b1_202206</database>\n")
+    xml.write("        <database>mv_g2o_met_cam_v70a1_"+database_date+",mv_g2o_met_cam_v70b1_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
