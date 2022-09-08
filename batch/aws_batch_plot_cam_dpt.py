@@ -60,11 +60,11 @@ vday=[ "day2" ]
 run_cycle = [ "12Z" ]
 region = [ "CONUS", "WEST", "EAST" ]
 region = [ "WESTsub", "EASTsub" ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD", "MEX" ] 
 region = [ "GRB", "SPL", "SWD", "MEX"  ]
 region = [ "GMC", "LMV"  ]
 region = [ "SWC", "SWD", "SMT" ]
+region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
+           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD", "MEX" ] 
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_dpt_"+stat_var.lower()+".py"

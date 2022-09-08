@@ -1,8 +1,9 @@
-#!/bin/sh
+#!/bin/ba:w
+sh
 #
 # This script is intended for the near-real-time daily addition tot he database by month
 #
-module load prod_util/1.1.6
+module load prod_util
 flag_realtime=no
 MSG="$0 envir [prod|...] start_date end_date"
 if [ $# -lt 1 ]; then
@@ -37,9 +38,6 @@ fi
 SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
 XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
 BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws
-LOAD_DIR=${BASE_DIR}/verif
-if [ -d ${LOAD_DIR} ]; then /bin/rm -rf ${LOAD_DIR}; fi
-mkdir -p ${LOAD_DIR}
 ##
 YM0=`echo ${FIRSTDAY} | cut -c1-6`
 verif_type=g2o_met_verf_o3pm
