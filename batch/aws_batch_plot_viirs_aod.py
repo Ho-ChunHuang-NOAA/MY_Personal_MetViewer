@@ -48,25 +48,24 @@ else:
     exit()
 ## For diurnal cycle plot fix day as the # of fcst day
 if stat_var == "rmsedl":
-   vday=[ "day2" ]
+   vday=[ "day3" ]
 elif stat_var == "medl":
-   vday=[ "day2" ]
+   vday=[ "day3" ]
 
 run_cycle = [ "06Z", "12Z" ]
 region = [ "FULL", "G236", "G245", "G246" ]
 
 region = [ "G236" ]
+region = [ "G236", "G245", "G246" ]
 run_cycle = [ "12Z" ]
 
-if stat_var == "rmsedl":
-   vday=[ "day3" ]
-elif stat_var == "medl":
-   vday=[ "day3" ]
+region = [ "G236", "G245", "G246" ]
+run_cycle = [ "06Z", "12Z" ]
 
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls"
 xml_data_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
-xml_gen_python_name = "plot.cmaq_aod_"+stat_var.lower()+".py"
-plot_xml_file = "plot_cmaq_aod_"+stat_var.lower()+".xml"
+xml_gen_python_name = "plot.viirs_aod_"+stat_var.lower()+".py"
+plot_xml_file = "plot_viirs_aod_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
 checkfile=os.path.join(xml_data_dir,xml_gen_python_name)
@@ -90,9 +89,17 @@ shutil.copy(os.path.join(xml_data_dir, xml_gen_python_name), tmp_data_dir)
 ## fig_file=area+"_CMAQ_AOD_"+stat_var.upper()+"_"+verf_day.upper()+"_"+verf_cycle.upper()+"_"+qc.upper()+"_"+database_date+".png"
 if 1 == 1:
     for area in region:
+        if area == "G236":
+            label_area="CONUS"
+        elif area == "G245":
+            label_area="E_US"
+        elif area == "G246":
+            label_area="W_US"
+        else:
+            label_area=area
         for verf_day in vday:
             for verf_cycle in run_cycle:
-                subprocess.call(["python", xml_gen_python_name, area, area, verf_day.lower(), fig_sdate, fig_edate, verf_cycle, event_equal_flag])
+                subprocess.call(["python", xml_gen_python_name, area, label_area, verf_day.lower(), fig_sdate, fig_edate, verf_cycle, event_equal_flag])
                 if os.path.isfile(plot_xml_file):
                     subprocess.call([os.path.join(".", batch_script_name), os.environ['USER'].lower(), figure_dir, plot_xml_file])
                 else:
