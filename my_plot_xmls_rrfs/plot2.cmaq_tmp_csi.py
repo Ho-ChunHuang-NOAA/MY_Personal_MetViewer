@@ -301,7 +301,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_offset>1</y2lab_offset>\n")
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
-    xml.write("        <legend_inset>c(0.1,0.86)</legend_inset>\n")
+    xml.write("        <legend_inset>c(0.3,0.86)</legend_inset>\n")
     xml.write("        <legend_ncol>2</legend_ncol>\n")
     xml.write("        <legend_size>2</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")

@@ -14,14 +14,14 @@ METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/
 stat_var = "me"
 stat_var = "rmse"
 stat_var = "csi"
-stat_var = "pmave"
+stat_var = "ozmax8"
 
-if stat_var == "pmave":
+if stat_var == "ozmax8":
     plot_var = "cmaq_"+stat_var.lower()+"_time_series"
 else:
-    plot_var = "cmaq_pmave_"+stat_var.lower()
+    plot_var = "cmaq_ozmax8_"+stat_var.lower()
 
-y_label="Daily 24HR-AVG PM25 CONC (ug/m3)"
+y_label="Daily max 8HR-AVG O3 CONC (ppb)"
 ### PASSED AGRUEMENTS
 if len(sys.argv) < 7:
     print("you must set 7 arguments as area title_area [day1|day2] start_date end_date run_cycle event_equal_flag")
@@ -63,8 +63,8 @@ ymax="75.0"
 ymin="0.0"
 ybuf="0.0"
 ybuf="0.04"
-models = [ "PROD", "V70A1", "V70B1" ]
-lend_mdl = [ "GFS-CMAQ", "v70-a1", "v70-b1" ]
+models = [ "PROD", "V70B1" ]
+lend_mdl = [ "GFS-CMAQ", "v70-b1" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -103,7 +103,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70a1_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -120,7 +120,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <template>series_plot.R_tmpl</template>\n")
     xml.write("        <dep>\n")
     xml.write("            <dep1>\n")
-    xml.write("                <fcst_var name=\"PMAVE\">\n")
+    xml.write("                <fcst_var name=\"OZMAX8\">\n")
     xml.write("                    <stat>FBAR</stat>\n")
     xml.write("                    <stat>OBAR</stat>\n")
     xml.write("                </fcst_var>\n")
@@ -268,7 +268,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
     xml.write("        <legend_inset>c(0.15,1.07)</legend_inset>\n")
-    xml.write("        <legend_ncol>4</legend_ncol>\n")
+    xml.write("        <legend_ncol>3</legend_ncol>\n")
     xml.write("        <legend_size>2</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")
     xml.write("        <caption_col>#333333</caption_col>\n")
@@ -281,20 +281,20 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <lines>\n")
     ## pink #ff00ff, black 000000, red ff0000, blue 0000ff
     ## pink xml.write("            <line color=\"#ff00ff\" line_pos=\"0\" lty=\"2\" lwd=\"2\" type=\"horiz_line\"/>\n")
-    xml.write("            <line color=\"#000000\" line_pos=\"35\" lty=\"2\" lwd=\"2\" type=\"horiz_line\"/>\n")
+    xml.write("            <line color=\"#000000\" line_pos=\"70\" lty=\"2\" lwd=\"2\" type=\"horiz_line\"/>\n")
     xml.write("        </lines>\n")
-    xml.write("        <plot_ci>c(\"none\",\"none\",\"none\",\"none\",\"none\",\"none\")</plot_ci>\n")
-    xml.write("        <show_signif>c(FALSE,FALSE,FALSE,FALSE,FALSE,FALSE)</show_signif>\n")
-    xml.write("        <plot_disp>c(TRUE,TRUE,TRUE,TRUE,FALSE,FALSE)</plot_disp>\n")
-    xml.write("        <colors>c(\"#0000ffFF\",\"#006400FF\",\"#ff0000FF\",\"#000000FF\",\"#000000FF\",\"#000000FF\")</colors>\n")
-    xml.write("        <pch>c(20,20,20,20,20,20)</pch>\n")
-    xml.write("        <type>c(\"b\",\"b\",\"b\",\"p\",\"p\",\"p\")</type>\n")
-    xml.write("        <lty>c(1,1,1,1,1,1)</lty>\n")
-    xml.write("        <lwd>c(3,3,3,3,3,3)</lwd>\n")
-    xml.write("        <con_series>c(1,1,1,0,0,0)</con_series>\n")
-    xml.write("        <order_series>c(1,2,3,4,5,6)</order_series>\n")
+    xml.write("        <plot_ci>c(\"none\",\"none\",\"none\",\"none\")</plot_ci>\n")
+    xml.write("        <show_signif>c(FALSE,FALSE,FALSE,FALSE)</show_signif>\n")
+    xml.write("        <plot_disp>c(TRUE,TRUE,TRUE,FALSEE)</plot_disp>\n")
+    xml.write("        <colors>c(\"#0000ffFF\",\"#ff0000FF\",\"#000000FF\",\"#000000FF\")</colors>\n")
+    xml.write("        <pch>c(20,20,20,20)</pch>\n")
+    xml.write("        <type>c(\"b\",\"b\",\"p\",\"p\")</type>\n")
+    xml.write("        <lty>c(1,1,1,1)</lty>\n")
+    xml.write("        <lwd>c(3,3,3,3)</lwd>\n")
+    xml.write("        <con_series>c(1,1,0,0)</con_series>\n")
+    xml.write("        <order_series>c(1,2,3,4)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70a1\",\"v70b1\",\"OBS\",\"\",\"\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70b1\",\"OBS\",\"\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
     ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

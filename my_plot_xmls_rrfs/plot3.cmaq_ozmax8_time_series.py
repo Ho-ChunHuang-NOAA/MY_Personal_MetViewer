@@ -267,7 +267,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_offset>1</y2lab_offset>\n")
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
-    xml.write("        <legend_inset>c(0.15,1.05)</legend_inset>\n")
+    xml.write("        <legend_inset>c(0.15,1.07)</legend_inset>\n")
     xml.write("        <legend_ncol>4</legend_ncol>\n")
     xml.write("        <legend_size>2</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")

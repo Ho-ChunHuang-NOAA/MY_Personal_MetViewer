@@ -11,17 +11,8 @@ user=os.environ['USER']
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
 METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
 
-stat_var = "me"
-stat_var = "rmse"
 stat_var = "csi"
-stat_var = "pmave"
 
-if stat_var == "pmave":
-    plot_var = "cmaq_"+stat_var.lower()+"_time_series"
-else:
-    plot_var = "cmaq_pmave_"+stat_var.lower()
-
-y_label="Daily 24HR-AVG PM25 CONC (ug/m3)"
 ### PASSED AGRUEMENTS
 if len(sys.argv) < 7:
     print("you must set 7 arguments as area title_area [day1|day2] start_date end_date run_cycle event_equal_flag")
@@ -32,12 +23,16 @@ else:
     verf_day_id = sys.argv[3]
     start_date = sys.argv[4]
     end_date = sys.argv[5]
-    verf_cycle_id=sys.argv[6]
+    verf_cycle_id = sys.argv[6]
     event_equal_flag = sys.argv[7]
-### start_date = "20180829"
-### end_date = "20180831"
-sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 00)
-edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 23)
+
+if stat_var == "ozmax8":
+    plot_var = "cmaq_"+stat_var.lower()+"_time_series"
+else:
+    plot_var = "cmaq_ozmax8_"+stat_var.lower()
+
+sdate = datetime.datetime(int(start_date[0:4]), int(start_date[4:6]), int(start_date[6:]), 11)
+edate = datetime.datetime(int(end_date[0:4]), int(end_date[4:6]), int(end_date[6:]), 11)
 date_inc = datetime.timedelta(hours=24)
 hour_inc = datetime.timedelta(hours=1)
 val_date_format = "%Y-%m-%d %H:%M:%S"
@@ -54,20 +49,23 @@ if cdate_beg == cdate_end:
    figure_date = sdate.strftime(database_date_format)
 else:
    figure_date = header_date
-tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead_"+database_date
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead"
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
 
-ymax="75.0"
-ymin="0.0"
-ybuf="0.0"
+ybuf="0.01"
 ybuf="0.04"
-models = [ "PROD", "V70A1", "V70B1" ]
-lend_mdl = [ "GFS-CMAQ", "v70-a1", "v70-b1" ]
+
+ymin="0.0"
+ymax="1.0"
+
+models = [ "PROD", "V70B1" ]
+lend_mdl = [ "GFS-CMAQ", "v70-b1" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
+csi_thresh = [ "50", "60", "65", "70", "75", "85", "105", "125", "150" ]
 if verf_cycle_id == "12Z":
    hour_cycle=12
 elif verf_cycle_id == "06Z":
@@ -78,12 +76,15 @@ else:
 if verf_day_id == "day1":
     vhour_beg = 1
     vhour_end = 24
+    event_equal_flag="true"
 elif verf_day_id == "day2":
     vhour_beg = 25
     vhour_end = 48
+    event_equal_flag="true"
 elif verf_day_id == "day3":
     vhour_beg = 49
     vhour_end = 72
+    event_equal_flag="false"
 else:
     print("verification day "+verf_day_id+" not recongized.")
     exit()
@@ -101,28 +102,42 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n")
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
-    xml.write("        <host>rds_host:3306</host>\n")
-    ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70a1_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
-    xml.write("        <user>rds_user</user>\n")
-    xml.write("        <password>rds_pwd</password>\n")
-    xml.write("        <management_system>aurora</management_system>\n")
-    xml.write("    </connection>\n")
-    xml.write("    <rscript>Rscript</rscript>\n")
-    xml.write("    <folders>\n")
-    xml.write("        <r_tmpl>rds_R_tmpl</r_tmpl>\n")
-    xml.write("        <r_work>rds_R_work</r_work>\n")
-    xml.write("        <plots>rds_plots</plots>\n")
-    xml.write("        <data>rds_data</data>\n")
-    xml.write("        <scripts>rds_scripts</scripts>\n")
-    xml.write("    </folders>\n")
+    if 1 == 1:
+        xml.write("        <host>rds_host:3306</host>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+        xml.write("        <user>rds_user</user>\n")
+        xml.write("        <password>rds_pwd</password>\n")
+        ### xml.write("        <management_system>aurora</management_system>\n")
+        xml.write("    </connection>\n")
+        xml.write("    <rscript>Rscript</rscript>\n")
+        xml.write("    <folders>\n")
+        xml.write("        <r_tmpl>rds_R_tmpl</r_tmpl>\n")
+        xml.write("        <r_work>rds_R_work</r_work>\n")
+        xml.write("        <plots>rds_plots</plots>\n")
+        xml.write("        <data>rds_data</data>\n")
+        xml.write("        <scripts>rds_scripts</scripts>\n")
+        xml.write("    </folders>\n")
+    else:
+        xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+        xml.write("        <user>******</user>\n")
+        xml.write("        <password>******</password>\n")
+        xml.write("        <management_system>aurora</management_system>\n")
+        xml.write("    </connection>\n")
+        ### xml.write("    <rscript>Rscript</rscript>\n")
+        xml.write("    <folders>\n")
+        xml.write("        <r_tmpl>/var/lib/tomcat/webapps/metviewer//R_tmpl</r_tmpl>\n")
+        xml.write("        <r_work>/var/lib/tomcat/webapps/metviewer//R_work</r_work>\n")
+        xml.write("        <plots>/var/www/output//plots</plots>\n")
+        xml.write("        <data>/var/www/output//data</data>\n")
+        xml.write("        <scripts>/var/www/output//scripts</scripts>\n")
+        xml.write("    </folders>\n")
     xml.write("    <plot>\n")
     xml.write("        <template>series_plot.R_tmpl</template>\n")
     xml.write("        <dep>\n")
     xml.write("            <dep1>\n")
-    xml.write("                <fcst_var name=\"PMAVE\">\n")
-    xml.write("                    <stat>FBAR</stat>\n")
-    xml.write("                    <stat>OBAR</stat>\n")
+    xml.write("                <fcst_var name=\"OZMAX8\">\n")
+    xml.write("                    <stat>"+stat_var.upper()+"</stat>\n")
     xml.write("                </fcst_var>\n")
     xml.write("            </dep1>\n")
     xml.write("            <dep2/>\n")
@@ -168,8 +183,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("            <field equalize=\""+event_equal_flag+"\" name=\"fcst_init_beg\">\n")
     xml.write("                <set name=\"fcst_init_beg_2\">\n")
     date = sdate - date_inc
-    if hour_cycle == 12:
-        date = date  - date_inc
+    ### date = date  - date_inc
     while date <= edate:
         if date.hour == hour_cycle:
             val_date = date.strftime(val_date_format)
@@ -177,27 +191,39 @@ with open(plot_xml_file, 'a') as xml:
         date = date + hour_inc
     xml.write("                </set>\n")
     xml.write("            </field>\n")
-    xml.write("        </plot_fix>\n")
-    xml.write("        <plot_cond/>\n")
-    xml.write("        <indep equalize=\"false\" name=\"fcst_valid_beg\">\n")
+    xml.write("            <field equalize=\""+event_equal_flag+"\" name=\"fcst_valid_beg\">\n")
+    xml.write("                <set name=\"fcst_valid_beg_3\">\n")
     date = sdate
     while date <= edate:
         val_date = date.strftime(val_date_format)
         label_date = date.strftime(lbl_date_format)
-        xml.write("            <val label=\""+label_date+"\" plot_val=\"\">"+val_date+"</val>\n")
-        date = date + hour_inc
+        xml.write("                    <val>"+val_date+"</val>\n")
+        date = date + date_inc
+    date = sdate
+    xml.write("                </set>\n")
+    xml.write("            </field>\n")
+    xml.write("        </plot_fix>\n")
+    xml.write("        <plot_cond/>\n")
+    xml.write("        <indep equalize=\"true\" name=\"obs_thresh\">\n")
+    for csi in csi_thresh:
+        xml.write("            <val label=\"&gt;"+csi+"\" plot_val=\"\">&gt;"+csi+"</val>\n")
     xml.write("        </indep>\n")
-    xml.write("        <calc_stat>\n")
-    xml.write("            <calc_sl1l2>true</calc_sl1l2>\n")
-    xml.write("        </calc_stat>\n")
+    xml.write("        <agg_stat>\n")
+    xml.write("            <agg_ctc>true</agg_ctc>\n")
+    xml.write("            <boot_repl>1</boot_repl>\n")
+    xml.write("            <boot_random_seed/>\n")
+    xml.write("            <boot_ci>perc</boot_ci>\n")
+    xml.write("            <eveq_dis>false</eveq_dis>\n")
+    xml.write("            <cache_agg_stat>false</cache_agg_stat>\n")
+    xml.write("        </agg_stat>\n")
     xml.write("        <plot_stat>median</plot_stat>\n")
     xml.write("        <tmpl>\n")
     xml.write("            <data_file>"+label_area+"_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+header_date+".data</data_file>\n")
     xml.write("            <plot_file>"+label_area+"_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+figure_date+".png</plot_file>\n")
     xml.write("            <r_file>plot_"+label_area+"_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+header_date+".R</r_file>\n")
     xml.write("            <title>MET_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+header_date+" - "+label_area+"</title>\n")
-    xml.write("            <x_label>TIME</x_label>\n")
-    xml.write("            <y1_label>"+y_label+"</y1_label>\n")
+    xml.write("            <x_label>OBS Threshold - Daily Max 8HR_AVG Ozone Concentration</x_label>\n")
+    xml.write("            <y1_label>"+stat_var.upper()+"</y1_label>\n")
     xml.write("            <y2_label/>\n")
     xml.write("            <caption/>\n")
     xml.write("            <job_title>plot_"+label_area+"_"+plot_var.upper()+"_"+verf_day_id.upper()+"_"+verf_cycle_id.upper()+"_"+database_date+"</job_title>\n")
@@ -214,28 +240,28 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <indy2_stag>false</indy2_stag>\n")
     xml.write("        <grid_on>true</grid_on>\n")
     xml.write("        <sync_axes>false</sync_axes>\n")
-    xml.write("        <dump_points1>false</dump_points1>\n")
+    xml.write("        <dump_points1>true</dump_points1>\n")
     xml.write("        <dump_points2>false</dump_points2>\n")
     xml.write("        <log_y1>false</log_y1>\n")
     xml.write("        <log_y2>false</log_y2>\n")
     xml.write("        <varianceinflationfactor>false</varianceinflationfactor>\n")
     xml.write("        <plot_type>png16m</plot_type>\n")
-    xml.write("        <plot_height>6</plot_height>\n")
-    xml.write("        <plot_width>15</plot_width>\n")
+    xml.write("        <plot_height>8.5</plot_height>\n")
+    xml.write("        <plot_width>11</plot_width>\n")
     xml.write("        <plot_res>72</plot_res>\n")
     xml.write("        <plot_units>in</plot_units>\n")
     xml.write("        <mar>c(8,4,5,4)</mar>\n")
     xml.write("        <mgp>c(1,1,0)</mgp>\n")
     xml.write("        <cex>1</cex>\n")
     xml.write("        <title_weight>2</title_weight>\n")
-    xml.write("        <title_size>1.7</title_size>\n")
+    xml.write("        <title_size>1.9</title_size>\n")
     xml.write("        <title_offset>-2</title_offset>\n")
     xml.write("        <title_align>0.45</title_align>\n")
-    xml.write("        <xtlab_orient>2</xtlab_orient>\n")
-    xml.write("        <xtlab_perp>0</xtlab_perp>\n")
-    xml.write("        <xtlab_horiz>1</xtlab_horiz>\n")
-    xml.write("        <xtlab_freq>12</xtlab_freq>\n")
-    xml.write("        <xtlab_size>6</xtlab_size>\n")
+    xml.write("        <xtlab_orient>1</xtlab_orient>\n")
+    xml.write("        <xtlab_perp>-0.75</xtlab_perp>\n")
+    xml.write("        <xtlab_horiz>0.5</xtlab_horiz>\n")
+    xml.write("        <xtlab_freq>0</xtlab_freq>\n")
+    xml.write("        <xtlab_size>8</xtlab_size>\n")
     xml.write("        <xlab_weight>1</xlab_weight>\n")
     xml.write("        <xlab_size>10</xlab_size>\n")
     xml.write("        <xlab_offset>10</xlab_offset>\n")
@@ -267,39 +293,35 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <y2lab_offset>1</y2lab_offset>\n")
     xml.write("        <y2lab_align>0.5</y2lab_align>\n")
     xml.write("        <legend_box>n</legend_box>\n")
-    xml.write("        <legend_inset>c(0.15,1.07)</legend_inset>\n")
-    xml.write("        <legend_ncol>4</legend_ncol>\n")
+    xml.write("        <legend_inset>c(0.3,0.86)</legend_inset>\n")
+    xml.write("        <legend_ncol>2</legend_ncol>\n")
     xml.write("        <legend_size>2</legend_size>\n")
     xml.write("        <caption_weight>1</caption_weight>\n")
     xml.write("        <caption_col>#333333</caption_col>\n")
     xml.write("        <caption_size>0.8</caption_size>\n")
     xml.write("        <caption_offset>3</caption_offset>\n")
-    xml.write("        <caption_align>0.5</caption_align>\n")
+    xml.write("        <caption_align>0</caption_align>\n")
     xml.write("        <ci_alpha>0.05</ci_alpha>\n")
-    xml.write("        <eqbound_low>-0.001</eqbound_low>\n")
-    xml.write("        <eqbound_high>0.001</eqbound_high>\n")
-    xml.write("        <lines>\n")
-    ## pink #ff00ff, black 000000, red ff0000, blue 0000ff
-    ## pink xml.write("            <line color=\"#ff00ff\" line_pos=\"0\" lty=\"2\" lwd=\"2\" type=\"horiz_line\"/>\n")
-    xml.write("            <line color=\"#000000\" line_pos=\"35\" lty=\"2\" lwd=\"2\" type=\"horiz_line\"/>\n")
-    xml.write("        </lines>\n")
-    xml.write("        <plot_ci>c(\"none\",\"none\",\"none\",\"none\",\"none\",\"none\")</plot_ci>\n")
-    xml.write("        <show_signif>c(FALSE,FALSE,FALSE,FALSE,FALSE,FALSE)</show_signif>\n")
-    xml.write("        <plot_disp>c(TRUE,TRUE,TRUE,TRUE,FALSE,FALSE)</plot_disp>\n")
-    xml.write("        <colors>c(\"#0000ffFF\",\"#006400FF\",\"#ff0000FF\",\"#000000FF\",\"#000000FF\",\"#000000FF\")</colors>\n")
-    xml.write("        <pch>c(20,20,20,20,20,20)</pch>\n")
-    xml.write("        <type>c(\"b\",\"b\",\"b\",\"p\",\"p\",\"p\")</type>\n")
-    xml.write("        <lty>c(1,1,1,1,1,1)</lty>\n")
-    xml.write("        <lwd>c(3,3,3,3,3,3)</lwd>\n")
-    xml.write("        <con_series>c(1,1,1,0,0,0)</con_series>\n")
-    xml.write("        <order_series>c(1,2,3,4,5,6)</order_series>\n")
+    xml.write("        <plot_ci>c(\"none\",\"none\")</plot_ci>\n")
+    xml.write("        <show_signif>c(FALSE,FALSE)</show_signif>\n")
+    xml.write("        <plot_disp>c(TRUE,TRUE)</plot_disp>\n")
+    xml.write("        <colors>c(\"#0000ffFF\",\"#ff0000FF\")</colors>\n")
+    xml.write("        <pch>c(20,20)</pch>\n")
+    xml.write("        <type>c(\"b\",\"b\")</type>\n")
+    xml.write("        <lty>c(1,1)</lty>\n")
+    xml.write("        <lwd>c(3,3)</lwd>\n")
+    xml.write("        <con_series>c(0,0)</con_series>\n")
+    xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70a1\",\"v70b1\",\"OBS\",\"\",\"\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70b1\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
-    ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
-    xml.write("        <y1_lim>c()</y1_lim>\n")
+## autoscaling
+##     xml.write("        <y1_lim>c()</y1_lim>\n")
+    xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <x1_lim>c()</x1_lim>\n")
     xml.write("        <y1_bufr>"+ybuf+"</y1_bufr>\n")
+##    xml.write("        <y1_bufr/>\n")
     xml.write("        <y2_lim>c()</y2_lim>\n")
+##    xml.write("        <y2_lim>c("+ymin+","+ymax+")</y2_lim>\n")
     xml.write("    </plot>\n")
     xml.write("</plot_spec>\n")
