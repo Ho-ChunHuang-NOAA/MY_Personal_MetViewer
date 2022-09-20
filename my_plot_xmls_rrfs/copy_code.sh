@@ -1,6 +1,6 @@
 #!/bin/sh
-from_code=plot3.cmaq
-to_code=plot2.cmaq
+from_code=plot2.cmaq
+to_code=plot4.cmaq
 declare -a met_var=( dpt gust hpbl rh tcdc tmp )
 declare -a statistics=( time_series medl rmsedl taylor )
 declare -a aqm_var=( o3 pm25 ozmax1 ozmax8 pdmax1 pmave )
