@@ -67,6 +67,7 @@ region = [ "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
 region = [ "CONUS" ]
 region = [ "GRB", "GMC", "LMV", "SPL", "SWD", "MEX"  ]
 region = [ "SWC", "SWD", "SMT" ]
+region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 region = [ "CONUS", "WEST", "EAST", "NEC", "SEC", "NWC", "SWC", "NMT", "SMT",  "GRB", "SWD",
            "NPL", "SPL", "MDW", "LMV", "GMC", "APL" ] 
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",

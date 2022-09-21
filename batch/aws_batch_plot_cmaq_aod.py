@@ -52,6 +52,7 @@ if stat_var == "rmsedl":
 elif stat_var == "medl":
    vday=[ "day2" ]
 
+region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 run_cycle = [ "06Z", "12Z" ]
 region = [ "FULL", "G236", "G245", "G246" ]
 

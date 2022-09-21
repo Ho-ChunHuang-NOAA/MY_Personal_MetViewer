@@ -59,6 +59,7 @@ region = [ "G236" ]
 region = [ "G236", "G245", "G246" ]
 run_cycle = [ "12Z" ]
 
+region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 region = [ "G236", "G245", "G246" ]
 run_cycle = [ "06Z", "12Z" ]
 
