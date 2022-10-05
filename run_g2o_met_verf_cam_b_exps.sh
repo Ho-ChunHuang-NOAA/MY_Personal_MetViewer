@@ -74,7 +74,7 @@ for i in "${exp[@]}"; do
     cd ${LOAD_DIR}
 
     capexp=`echo ${i} | tr '[:lower:]' '[:upper:]'`
-    met_datbase=mv_${verif_type}_${verif_var}_${i}_${TIME_ID1}
+    met_datbase=mv_${verif_type}_${verif_var}_b_${i}_${TIME_ID1}
     load_datbase_xml=load_${verif_type}_${verif_var}_${i}_${TIME_ID1}.xml
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do

@@ -1,7 +1,9 @@
 #!/bin/bash
 module load prod_util
-## declare -a exp=( v70a1 v70b1 )
-declare -a exp=( v70b1 )
+declare -a exp=( prod v70a1 v70b1 )
+declare -a exp=( prod v70c3 )
+declare -a exp=( prod )
+declare -a exp=( v70c3 )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then
@@ -35,8 +37,8 @@ if [ "${TIME_ID1}" != "${TIME_ID2}" ]; then
     exit
 fi
 ## TIME_ID1=sep20
-database=chem
 database=meteor
+database=chem
 if [ "${database}" == "chem" ]; then
     verif_var="o3pm"
     DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm
@@ -45,7 +47,6 @@ elif [ "${database}" == "meteor" ]; then
     DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam
 fi
 verif_type=g2o_met
-load_datbase_template=load_${verif_type}_${verif_var}.base
 load_datbase_template=load_${verif_type}.base
 MSG="$0 new or add database [new|add]"
 if [ $# -lt 1 ]; then
@@ -74,13 +75,13 @@ for i in "${exp[@]}"; do
     cd ${LOAD_DIR}
 
     capexp=`echo ${i} | tr '[:lower:]' '[:upper:]'`
-    met_datbase=mv_${verif_type}_${verif_var}_${i}_${TIME_ID1}
+    met_datbase=mv_${verif_type}_${verif_var}_b_${i}_${TIME_ID1}
     load_datbase_xml=load_${verif_type}_${verif_var}_${i}_${TIME_ID1}.xml
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do
         if [ "${database}" == "chem" ]; then
-            cp ${DATA_DIR}/${NOW}/${capexp}_* .
-            cp ${DATA_DIR}/${NOW}/${capexp}_* .
+            cp ${DATA_DIR}/${NOW}/${capexp}_AQ* .
+            cp ${DATA_DIR}/${NOW}/${capexp}_PM* .
             if [ "${capexp}" == "PROD" ]; then
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_AQ* .
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_PM* .
