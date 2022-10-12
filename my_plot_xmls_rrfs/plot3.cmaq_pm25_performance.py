@@ -61,7 +61,8 @@ lend_mdl = [ "GFS-CMAQ", "v70-a1", "v70-b1" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 ## csi_thresh = [ "0.3", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0" ]
-csi_thresh = [ "5", "10", "12", "15", "20", "25", "35" ]
+## csi_thresh = [ "5", "10", "12", "15", "20", "25", "35" ]
+csi_thresh = [ "5", "10", "12", "15", "20", "25", "35", "45", "55", "65" ]
 if verf_cycle_id == "12Z":
    hour_cycle=12
 elif verf_cycle_id == "06Z":
