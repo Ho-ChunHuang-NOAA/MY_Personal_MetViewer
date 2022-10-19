@@ -16,7 +16,7 @@ fi
 declare -a dayofmon=( 31 28 31 30 31 30 31 31 30 31 30 31 )
 logdir=/lfs/h2/emc/ptmp/"+os.environ['USER']+"/batch.logs
 NOW=${FIRSTMON}
-script_dir=/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/batch
+script_dir=/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/batch
 script_name=aws_batch_plot_cmaq_aod.py
 cd ${script_dir}
 script_name=aws_batch_plot_cmaq_aod_daily.py
