@@ -286,7 +286,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0,0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2,3,4)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70a1\",\"OBS\",\"\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70c3\",\"OBS\",\"\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
     ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

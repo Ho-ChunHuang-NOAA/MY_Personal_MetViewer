@@ -61,7 +61,8 @@ lend_mdl = [ "GFS-CMAQ", "v70-b1" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 ## csi_thresh = [ "0.3", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0" ]
-csi_thresh = [ "5", "10", "12", "15", "20", "25", "35", "40", "45", "50", "55", "60", "65" ]
+## csi_thresh = [ "5", "10", "12", "15", "20", "25", "35", "40", "45", "50", "55", "60", "65" ]
+csi_thresh = [ "5", "10", "12", "15", "20", "25", "35", "45", "55", "65" ]
 ## fcst lead 16 22 23 29 40 46 47 53 64 70 71 77
 ## fcst init 06 12
 ## valid begin 4 11
@@ -100,7 +101,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")

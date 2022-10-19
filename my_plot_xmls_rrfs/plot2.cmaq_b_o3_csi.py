@@ -307,7 +307,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <plot_disp>c(TRUE,TRUE)</plot_disp>\n")
     xml.write("        <colors>c(\"#0000ffFF\",\"#ff0000FF\")</colors>\n")
     xml.write("        <pch>c(20,20)</pch>\n")
-    xml.write("        <type>c(\"l\",\"l\")</type>\n")
+    xml.write("        <type>c(\"b\",\"b\")</type>\n")
     xml.write("        <lty>c(1,1)</lty>\n")
     xml.write("        <lwd>c(3,3)</lwd>\n")
     xml.write("        <con_series>c(0,0)</con_series>\n")

@@ -1,7 +1,7 @@
 #!/bin/bash
 module load prod_util
 ## declare -a exp=( v70a1 v70b1 )
-declare -a exp=( v70b1 )
+declare -a exp=( v70c3 )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then

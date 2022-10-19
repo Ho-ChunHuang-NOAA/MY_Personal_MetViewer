@@ -1,7 +1,7 @@
 #!/bin/sh
 declare -a o3pm_var=( o3 pm25 )
 select_day=day2
-beg_date=20220901 
+beg_date=20220909 
 end_date=20220930
 for i in "${o3pm_var[@]}"; do
     python aws_batch_plot_icmaq_${i}.py ${i} ${select_day} ${beg_date} ${end_date} false
