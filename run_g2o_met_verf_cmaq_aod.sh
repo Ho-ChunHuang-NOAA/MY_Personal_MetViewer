@@ -49,6 +49,7 @@ elif [ "${database}" == "meteor" ]; then
 elif [ "${database}" == "aod" ]; then
     verif_var="aod"
     DATA_DIR=/lfs/h2/emc/vpppg/noscrub/perry.shafran/evs/v1.0/stats/aqm
+    mdl_exp="prod"
 fi
 verif_type=g2g_met
 load_datbase_template=load_${verif_type}.base
@@ -79,8 +80,8 @@ for i in "${exp[@]}"; do
     cd ${LOAD_DIR}
 
     capexp=`echo ${i} | tr '[:lower:]' '[:upper:]'`
-    met_datbase=mv_${verif_type}_${verif_var}_${i}_${TIME_ID1}
-    load_datbase_xml=load_${verif_type}_${verif_var}_${i}_${TIME_ID1}.xml
+    met_datbase=mv_${verif_type}_${verif_var}_${i}_${mdl_exp}_${TIME_ID1}
+    load_datbase_xml=load_${verif_type}_${verif_var}_${i}_${mdl_exp}_${TIME_ID1}.xml
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do
         if [ "${database}" == "chem" ]; then

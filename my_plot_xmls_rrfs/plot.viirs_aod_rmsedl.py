@@ -103,7 +103,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2g_met_aod_viirs_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2g_met_aod_viirs_prod_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")

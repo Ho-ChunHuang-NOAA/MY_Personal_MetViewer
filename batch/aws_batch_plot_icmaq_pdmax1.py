@@ -51,21 +51,10 @@ if stat_var == "rmsedl":
 elif stat_var == "medl":
    vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
-region = [ "CONUS", "WEST", "SWC", "NWC" ]
-region = [ "CONUS", "WEST", "EAST", "NWC" ]
 ## vday=[ "day2" ]
 run_cycle = [ "12Z" ]
-region = [ "CONUS", "WEST", "EAST", "SWC", "NWC", "NEC", "SEC" ]
-region = [ "CONUS", "WEST", "EAST", "SWC", "NWC", "NEC", "SEC", "MDW", "NMT", "NPL" ]
-region = [ "EAST" ]
-region = [ "WEST" ]
-region = [ "NWC" ]
-region = [ "CONUS", "WEST", "EAST", "NWC" ]
 region = [ "CONUS" ]
-region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
-region = [ "GMC", "GRB", "LMV"  ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ]
+region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ]
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
