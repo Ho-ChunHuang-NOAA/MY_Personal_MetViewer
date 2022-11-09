@@ -8,8 +8,8 @@ import fnmatch
 user=os.environ['USER']
 
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "rmsets"
 
@@ -60,8 +60,8 @@ os.makedirs(tmp_data_dir)
 ymax="1.0"
 ymin="0.0"
 ybuf="0.1"
-models = [ "PROD", "V70C3" ]
-lend_mdl = [ "GFS-CMAQ", "v70-c3" ]
+models = [ "PROD", "V70C15" ]
+lend_mdl = [ "GFS-CMAQ", "v70-c15" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -100,7 +100,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c3_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")

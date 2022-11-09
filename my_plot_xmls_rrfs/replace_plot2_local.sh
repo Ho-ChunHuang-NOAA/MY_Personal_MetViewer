@@ -37,10 +37,14 @@ old_ver='mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database
 new_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"'
 old_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"'
 new_ver='mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"'
-old_ver='mv_g2o_met_o3pm_b_v70b1'
-new_ver='mv_g2o_met_o3pm_b_v70c3'
-old_ver='v70-b1'
-new_ver='v70-c3'
+old_ver='mv_g2o_met_o3pm_b_v70c3'
+new_ver='mv_g2o_met_o3pm_b_v70c15'
+old_ver='v70c3'
+new_ver='v70c15'
+old_ver='V70C3'
+new_ver='V70C15'
+old_ver='v70-c3'
+new_ver='v70-c15'
 for i in "${shfile[@]}"
 do
    echo ${i}

@@ -7,7 +7,7 @@ import fnmatch
 
 ###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"
 ###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/meso/save/Ho-Chun.Huang/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/gpfs/dell2/emc/modeling/noscrub/Ho-Chun.Huang/METviewer_AWS/script"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "csi"
 
@@ -47,7 +47,7 @@ if cdate_beg == cdate_end:
    figure_date = sdate.strftime(database_date_format)
 else:
    figure_date = header_date
-tmp_data_dir="/gpfs/dell2/stmp/Ho-Chun.Huang/working/check_fcst_lead"
+tmp_data_dir="/lfs/h2/emc/stmp/"+os.environ['USER']+"/working/check_fcst_lead"
 if os.path.exists(tmp_data_dir):
     shutil.rmtree(tmp_data_dir)
 os.makedirs(tmp_data_dir)
@@ -58,7 +58,7 @@ ybuf="0.04"
 ymin="0.0"
 ymax="0.8"
 
-models = [ "V161G" ]
+models = [ "V70C3" ]
 lend_mdl = [ "v161-g" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
@@ -102,7 +102,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     if 1 == 1:
         xml.write("        <host>rds_host:3306</host>\n")
-        xml.write("        <database>mv_g2o_met_cam_sep20v161g</database>\n")
+        xml.write("        <database>mv_g2o_met_cam_b_v70c3_"+database_date+"</database>\n")
         xml.write("        <user>rds_user</user>\n")
         xml.write("        <password>rds_pwd</password>\n")
         ### xml.write("        <management_system>aurora</management_system>\n")
@@ -117,7 +117,7 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("    </folders>\n")
     else:
         xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
-        xml.write("        <database>mv_g2o_met_cam_sep20v161g</database>\n")
+        xml.write("        <database>mv_g2o_met_cam_b_v70c3_"+database_date+"</database>\n")
         xml.write("        <user>******</user>\n")
         xml.write("        <password>******</password>\n")
         xml.write("        <management_system>aurora</management_system>\n")

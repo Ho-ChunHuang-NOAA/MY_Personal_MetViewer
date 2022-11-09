@@ -6,8 +6,8 @@ import subprocess
 import fnmatch
 
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "medl"
 
@@ -58,7 +58,7 @@ os.makedirs(tmp_data_dir)
 ymax="120.0"
 ymin="0.0"
 ybuf="0.1"
-models = [ "V161G" ]
+models = [ "V70C3" ]
 lend_mdl = [ "v161-g" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
@@ -97,7 +97,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_cam_sep20v161g</database>\n")
+    xml.write("        <database>mv_g2o_met_cam_b_v70c3_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -299,7 +299,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(1)</con_series>\n")
     xml.write("        <order_series>c(1)</order_series>\n")
     xml.write("        <plot_cmd>abline(h=0, col=\"black\", lwd=2, lty=2)</plot_cmd>\n")
-    xml.write("        <legend>c(\"v161g\")</legend>\n")
+    xml.write("        <legend>c(\"v70C3\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 #    xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

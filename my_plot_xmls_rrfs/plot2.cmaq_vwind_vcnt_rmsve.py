@@ -6,8 +6,8 @@ import subprocess
 import fnmatch
 
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/Mallory.Row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "me"
 stat_var = "rmse"

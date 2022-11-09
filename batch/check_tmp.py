@@ -13,7 +13,7 @@ else:
     flag_vday = sys.argv[2]
     start_date = sys.argv[3]
     end_date = sys.argv[4]
-if stat_var == "o3":
+if stat_var == "tmp":
     stat_var = "time_series"
 print(str(len(sys.argv)))
 if len(sys.argv) > 5:
@@ -31,6 +31,8 @@ database_year = sdate.strftime(database_year_format)
 
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
 if flag_vday == "all":
@@ -44,27 +46,22 @@ elif flag_vday == "day3":
 else:
     print("verification verify day "+vday+" not recongized.")
     exit()
-
-vday=[ "day2" ]
-
 ## For diurnal cycle plot fix day as the # of fcst day
 if stat_var == "rmsedl":
-   vday=[ "day3" ]
+   vday=[ "day2" ]
 elif stat_var == "medl":
-   vday=[ "day3" ]
+   vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
+vday=[ "day2" ]
 run_cycle = [ "12Z" ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ] 
+region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD", "MEX" ] 
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
-
-region = [ "CONUS" ]
-
+region = [ "CONUS_East" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
-xml_gen_python_name = "plot3.cmaq_o3_"+stat_var.lower()+".py"
-xml_gen_python_name = "plot2.cmaq_o3_"+stat_var.lower()+".py"
-xml_gen_python_name = "plot2.cmaq_b_o3_"+stat_var.lower()+".py"
-plot_xml_file = "plot_cmaq_o3_"+stat_var.lower()+".xml"
+xml_gen_python_name = "plot3.cmaq_tmp_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot.cmaq_tmp_"+stat_var.lower()+".py"
+plot_xml_file = "plot_cmaq_tmp_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 checkfile=os.path.join(xml_data_dir,xml_gen_python_name)

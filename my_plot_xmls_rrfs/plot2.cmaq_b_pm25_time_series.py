@@ -8,8 +8,8 @@ import fnmatch
 user=os.environ['USER']
 
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "me"
 stat_var = "rmse"
@@ -62,8 +62,8 @@ os.makedirs(tmp_data_dir)
 ymax="100."
 ymin="0.0"
 ybuf="0.01"
-models = [ "PROD", "V70C3" ]
-lend_mdl = [ "GFS-CMAQ", "v70-c3" ]
+models = [ "PROD", "V70C15" ]
+lend_mdl = [ "GFS-CMAQ", "v70-c15" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -102,7 +102,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c3_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -286,7 +286,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0,0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2,3,4)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70c3\",\"OBS\",\"\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70c15\",\"OBS\",\"\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
     ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

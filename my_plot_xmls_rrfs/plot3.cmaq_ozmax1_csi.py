@@ -8,8 +8,8 @@ import fnmatch
 user=os.environ['USER']
 
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/noscrub/mallory.row/VRFY/METviewer_AWS"
-###METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS"
-METviewer_AWS_scripts_dir = "/lfs/h2/emc/physics/noscrub/"+os.environ['USER']+"/METviewer_AWS/script"
+###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
+METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
 stat_var = "csi"
 
