@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 module load prod_util
 declare -a exp=( PROD V70A1 V70B1 )
 MSG="$0 new/add beg_date end_date"

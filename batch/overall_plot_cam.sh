@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 declare -a cam_var=( dpt gust hpbl rh tcdc tmp )
 declare -a cam_var=( gust rh tcdc tmp )
 select_day=day2

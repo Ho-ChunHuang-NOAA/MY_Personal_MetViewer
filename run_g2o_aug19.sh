@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 module load prod_util/1.1.6
 declare -a exp=( pm_prod pm_para6d pm_v150a)
 declare -a exp=( aqm_prod aqm_para6d aqm_v150a pm_prod pm_para6d pm_v150a)

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This script is intended for the restrospective daily addition tot he database by month
 # For the near-real-time daily addition tot he database by month, use

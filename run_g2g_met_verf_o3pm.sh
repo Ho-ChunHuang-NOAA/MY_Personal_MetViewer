@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 module load prod_util/1.1.4
 declare -a exp=( prod para12 para87h)
 FIRSTDAY=20190801

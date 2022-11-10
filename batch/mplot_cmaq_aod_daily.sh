@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 module load prod_util/1.1.4
 module load python/2.7.14
 MSG="$0 Start_Mon [yyyymm] End_Mon [yyyymm] "

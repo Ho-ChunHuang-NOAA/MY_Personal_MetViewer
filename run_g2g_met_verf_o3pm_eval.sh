@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 module load prod_util/1.1.4
 RUN=cmaqo3pm
 declare -a exp=( prod para6a )

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 declare -a aod_var=( aod )
 declare -a sat_var=( goes viirs )
 select_day=day2

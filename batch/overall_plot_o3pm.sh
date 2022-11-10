@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 declare -a o3pm_var=( o3 pm25 )
 select_day=day2
 beg_date=20220909 
