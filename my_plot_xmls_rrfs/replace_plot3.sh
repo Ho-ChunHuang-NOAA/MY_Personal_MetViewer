@@ -10,14 +10,10 @@ done<tlist
 
 old_ver='mv_g2o_met_cam_aug19v150a,mv_g2o_met_cam_aug19v161a'
 new_ver='mv_g2o_met_cam_v70a1_202206,mv_g2o_met_cam_v70b1_202206'
-old_ver='"V150A", "V161A"'
-new_ver='"V70A1", "V70B1"'
 old_ver='"NAM-CMAQ", "v150-a", "v161-a"'
 new_ver='"GFS-CMAQ", "v70-a1", "v70-b1"'
 old_ver='"v161a'
 new_ver='"v70b1'
-old_ver='"v150a'
-new_ver='"v70a1'
 old_ver='"NAM-CMAQ'
 old_ver='"GFS-CMAQ'
 old_ver='"PROD", "v70-a1"'
@@ -29,8 +25,12 @@ new_ver='mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3p
 old_ver='mv_g2o_met_o3pm_prod_202206,mv_g2o_met_o3pm_v70a1_202206,mv_g2o_met_o3pm_v70b1_202206'
 old_ver='mv_g2o_met_o3pm_prod_202207,mv_g2o_met_o3pm_v70a1_202207,mv_g2o_met_o3pm_v70b1_202207'
 new_ver='mv_g2o_met_o3pm_prod_202208,mv_g2o_met_o3pm_v70a1_202208,mv_g2o_met_o3pm_v70b1_202208'
-old_ver='mv_g2o_met_o3pm_prod_202208,mv_g2o_met_o3pm_v70a1_202208,mv_g2o_met_o3pm_v70b1_202208'
-new_ver='mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70a1_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"'
+old_ver='mv_g2o_met_o3pm_v70b1'
+new_ver='mv_g2o_met_o3pm_b_v70c17'
+old_ver='"GFS-CMAQ", "v70-a1", "v70-b1"'
+new_ver='"GFS-CMAQ", "v70-c15", "v70-c17"'
+old_ver='mv_g2o_met_o3pm_prod'
+new_ver='mv_g2o_met_o3pm_b_prod'
 for i in "${shfile[@]}"
 do
    echo ${i}

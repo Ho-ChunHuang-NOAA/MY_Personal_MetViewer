@@ -6,13 +6,14 @@ import subprocess
 
 ### PASSED AGRUEMENTS
 if len(sys.argv) < 4:
-    print("you must set 4 arguments as stat[pdmax1|rmse|...] [day1|day2|day3] start_date end_date event_equal[optional]")
+    print("you must set 4 arguments as stat[pdmax1|rmse|...] [06|12|all] [day1|day2|day3|all] start_date end_date event_equal[optional]")
     sys.exit()
 else:
     stat_var = sys.argv[1]
-    flag_vday = sys.argv[2]
-    start_date = sys.argv[3]
-    end_date = sys.argv[4]
+    flag_cyc  = sys.argv[2]
+    flag_vday = sys.argv[3]
+    start_date = sys.argv[4]
+    end_date = sys.argv[5]
 if stat_var == "pdmax1":
     stat_var = "time_series"
 if len(sys.argv) > 5:
@@ -34,6 +35,15 @@ fig_edate = edate.strftime(file_date_format)
 ###METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
+if flag_cyc == "all":
+   run_cycle=[ "06Z", "12Z" ]
+elif flag_cyc == "06":
+   run_cycle=[ "06Z" ]
+elif flag_cyc == "12":
+   run_cycle=[ "12Z" ]
+else:
+    print("verification verify day "+cyc+" not recongized.")
+    exit()
 if flag_vday == "all":
    vday=[ "day1", "day2" ]
 elif flag_vday == "day1":
@@ -47,20 +57,18 @@ else:
     exit()
 ## For diurnal cycle plot fix day as the # of fcst day
 if stat_var == "rmsedl":
-   vday=[ "day2" ]
+   vday=[ "day3" ]
 elif stat_var == "medl":
-   vday=[ "day2" ]
-run_cycle = [ "06Z", "12Z" ]
-## vday=[ "day2" ]
-run_cycle = [ "12Z" ]
+   vday=[ "day3" ]
 region = [ "CONUS" ]
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ]
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
+region = [ "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
-xml_gen_python_name = "plot3.cmaq_pdmax1_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot2.cmaq_pdmax1_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot2.cmaq_b_pdmax1_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot3.cmaq_pdmax1_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_pdmax1_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
@@ -100,5 +108,6 @@ if 1 == 1:
     else:
        ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
 
     subprocess.call(['scp -p * '+partb], shell=True)

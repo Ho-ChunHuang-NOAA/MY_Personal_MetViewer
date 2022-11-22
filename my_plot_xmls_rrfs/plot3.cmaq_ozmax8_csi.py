@@ -60,33 +60,56 @@ ybuf="0.04"
 ymin="0.0"
 ymax="1.0"
 
-models = [ "PROD", "V70A1", "V70B1" ]
-lend_mdl = [ "GFS-CMAQ", "v70-a1", "v70-b1" ]
+models = [ "PROD", "V70C15", "V70C17" ]
+lend_mdl = [ "GFS-CMAQ", "v70-c15", "v70-c17" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 csi_thresh = [ "50", "60", "65", "70", "75", "85", "105", "125", "150" ]
+#
+#  this is special treatment for the ozmax8 becase legency code that define
+#  the valid time of ozmax8 is the 11Z of the 2nd day.  Thus for initial runtime of 06Z and 12Z,
+#  the lead time of the day1 forecast (valid at 11Z) from previous day's init 06Z/12z is 29 nad 23,
+#  respectively.   This is different from the ozmax1, pdmax1, and pmave where the valide time
+#  is defined at the 04Z of the next days.   Thus the lead time of fcst daya, day2, and day3
+#  are between 1-24, 25-48, and 49-72 as a regular setting for other parameter (metrics)
+#  Lead time for 06z ozmax8 are
+#       day1   29,  day2     53, and day3     77
+#  Lead time for 12z ozmax8 are
+#       day1   23,  day2     47, and day3     71
+#
 if verf_cycle_id == "12Z":
-   hour_cycle=12
+    hour_cycle=12
+    event_equal_flag="true"
+    if verf_day_id == "day1":
+        vhour_beg = 23
+        vhour_end = 23
+    elif verf_day_id == "day2":
+        vhour_beg = 47
+        vhour_end = 47
+    elif verf_day_id == "day3":
+        vhour_beg = 71
+        vhour_end = 71
+    else:
+        print("verification day "+verf_day_id+" not recongized.")
+        exit()
 elif verf_cycle_id == "06Z":
-   hour_cycle=6
+    hour_cycle=6
+    event_equal_flag="true"
+    if verf_day_id == "day1":
+        vhour_beg = 29
+        vhour_end = 29
+    elif verf_day_id == "day2":
+        vhour_beg = 53
+        vhour_end = 53
+    elif verf_day_id == "day3":
+        vhour_beg = 77
+        vhour_end = 77
+    else:
+        print("verification day "+verf_day_id+" not recongized.")
+        exit()
 else:
     print("verification cycle hour "+verf_cycle_id+" not recongized.")
-    exit()
-if verf_day_id == "day1":
-    vhour_beg = 1
-    vhour_end = 24
-    event_equal_flag="true"
-elif verf_day_id == "day2":
-    vhour_beg = 25
-    vhour_end = 48
-    event_equal_flag="true"
-elif verf_day_id == "day3":
-    vhour_beg = 49
-    vhour_end = 72
-    event_equal_flag="false"
-else:
-    print("verification day "+verf_day_id+" not recongized.")
     exit()
 vhour_inc = 1
 print("{0:0>2}".format(vhour_beg)+"  "+str(vhour_end))
@@ -104,7 +127,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     if 1 == 1:
         xml.write("        <host>rds_host:3306</host>\n")
-        xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70a1_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+",mv_g2o_met_o3pm_b_v70c17_"+database_date+"</database>\n")
         xml.write("        <user>rds_user</user>\n")
         xml.write("        <password>rds_pwd</password>\n")
         ### xml.write("        <management_system>aurora</management_system>\n")
@@ -119,7 +142,7 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("    </folders>\n")
     else:
         xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
-        xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70a1_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"</database>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+",mv_g2o_met_o3pm_b_v70c17_"+database_date+"</database>\n")
         xml.write("        <user>******</user>\n")
         xml.write("        <password>******</password>\n")
         xml.write("        <management_system>aurora</management_system>\n")
@@ -278,7 +301,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <grid_col>#cccccc</grid_col>\n")
     xml.write("        <grid_lwd>1</grid_lwd>\n")
     xml.write("        <grid_x>listX</grid_x>\n")
-    xml.write("        <x2tlab_orient>1</x2tlab_orient>\n")
+    xml.write("        <x2tlab_orient>2</x2tlab_orient>\n")
     xml.write("        <x2tlab_perp>1</x2tlab_perp>\n")
     xml.write("        <x2tlab_horiz>0.5</x2tlab_horiz>\n")
     xml.write("        <x2tlab_size>0.8</x2tlab_size>\n")
@@ -313,7 +336,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2,3)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70a1\",\"v70b1\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70c15\",\"v70c17\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
 ##     xml.write("        <y1_lim>c()</y1_lim>\n")
