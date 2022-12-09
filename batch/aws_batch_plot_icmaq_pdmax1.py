@@ -67,8 +67,8 @@ region = [ "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot2.cmaq_pdmax1_"+stat_var.lower()+".py"
-xml_gen_python_name = "plot2.cmaq_b_pdmax1_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot3.cmaq_pdmax1_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot2.cmaq_b_pdmax1_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_pdmax1_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
@@ -107,7 +107,7 @@ if 1 == 1:
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "web", "fig", database_year, database_date)
     else:
        ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
 
     subprocess.call(['scp -p * '+partb], shell=True)

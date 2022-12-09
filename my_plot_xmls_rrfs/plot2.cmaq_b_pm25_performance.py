@@ -56,8 +56,8 @@ os.makedirs(tmp_data_dir)
 
 ybuf="0.04"
 
-models = [ "PROD", "V70C15" ]
-lend_mdl = [ "GFS-CMAQ", "v70-c15" ]
+models = [ "PROD", "V70C22" ]
+lend_mdl = [ "GFS-CMAQ", "v70-c22" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
 ## csi_thresh = [ "0.3", "0.5", "1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0" ]
@@ -97,7 +97,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_202211,mv_g2o_met_o3pm_b_prod_202212,mv_g2o_met_o3pm_b_v70c22_202211,mv_g2o_met_o3pm_b_v70c22_202212</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")
@@ -295,7 +295,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(1,1)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"v70c15\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"v70c22\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
     xml.write("        <y1_lim>c()</y1_lim>\n")

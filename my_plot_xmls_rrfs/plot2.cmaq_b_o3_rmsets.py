@@ -60,8 +60,8 @@ os.makedirs(tmp_data_dir)
 ymax="1.0"
 ymin="0.0"
 ybuf="0.1"
-models = [ "PROD", "V70C15" ]
-lend_mdl = [ "GFS-CMAQ", "v70-c15" ]
+models = [ "PROD", "V70C22" ]
+lend_mdl = [ "GFS-CMAQ", "v70-c22" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -100,7 +100,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_202211,mv_g2o_met_o3pm_b_prod_202212,mv_g2o_met_o3pm_b_v70c22_202211,mv_g2o_met_o3pm_b_v70c22_202212</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
