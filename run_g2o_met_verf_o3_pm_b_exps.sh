@@ -1,8 +1,8 @@
 #!/bin/bash
 module load prod_util
 declare -a exp=( prod v70c22 )
-declare -a exp=( prod )
 declare -a exp=( v70c22 )
+declare -a exp=( prod )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then
@@ -100,4 +100,5 @@ for i in "${exp[@]}"; do
     fi
 
     $SCRIPT/mv_load_to_aws.sh ho-chun.huang ${BASE_DIR} ${XML}/${load_datbase_xml}
+    echo "run_scrpt = ${XML}/${load_datbase_xml}"
 done

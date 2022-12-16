@@ -5,7 +5,6 @@
 #    cron_load_g2o_met_verf_o3pm.sh
 #
 module load prod_util
-## set -x
 flag_realtime=no
 MSG="$0 [new/add] envir [prod|...] start_date end_date"
 if [ $# -lt 1 ]; then
@@ -40,6 +39,9 @@ else
     LASTDAY=$4
     echo "echo selected date ${FIRSTDAY} to ${LASTDAY} ${envir} addition to the database"
 fi
+
+## set -x
+
 ## EXP=`echo ${envir} | tr a-z A-Z`
 capexp=`echo ${envir} | tr '[:lower:]' '[:upper:]'`
 echo "Processing experiment ${envir} verification database addition"
@@ -97,15 +99,16 @@ elif [ "${database}" == "meteor" ]; then
     verif_var="cam"
     DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_cam/stat/cam
 fi
-verif_type=g2o_met
-load_datbase_template=load_${verif_type}.base
-if [ ! -s ${load_datbase_template} ]; then
-    echo "Can not find ${load_datbase_template}"
-    exit
-fi
 
 SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
 XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+
+verif_type=g2o_met
+load_datbase_template=load_${verif_type}.base
+if [ ! -s ${XML}/${load_datbase_template} ]; then
+    echo "Can not find ${XML}/${load_datbase_template}"
+    exit
+fi
 
 BASE_DIR=/lfs/h2/emc/stmp/${USER}/load_to_aws_${verif_var}_${envir}
 mkdir -p ${BASE_DIR}
@@ -121,7 +124,7 @@ mkdir -p ${LOAD_DIR}
 cd ${LOAD_DIR}
 
 YM0=`echo ${FIRSTDAY} | cut -c1-6`
-met_datbase=mv_${verif_type}_${verif_var}_${envir}_${YM0}
+met_datbase=mv_${verif_type}_${verif_var}_b_${envir}_${YM0}
 load_datbase_xml=load_${verif_type}_${verif_var}_${envir}_${YM0}.xml
 NOW=${FIRSTDAY}
 while [ ${NOW} -le ${LASTDAY} ]; do
@@ -170,7 +173,7 @@ if [ "${flag_same_month}" == "no" ]; then
     mkdir -p ${LOAD_DIR}
     cd ${LOAD_DIR}
     
-    met_datbase=mv_${verif_type}_${verif_var}_${envir}_${YM0}
+    met_datbase=mv_${verif_type}_${verif_var}_b_${envir}_${YM0}
     load_datbase_xml=load_${verif_type}_${verif_var}_${envir}_${YM0}.xml
     NOW=${FIRSTDAY}
     while [ ${NOW} -le ${LASTDAY} ]; do
