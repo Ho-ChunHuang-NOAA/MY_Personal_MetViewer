@@ -4,8 +4,8 @@ import shutil
 import os 
 import subprocess
 
-### PASSED AGRUEMENTS
-if len(sys.argv) < 4:
+# PASSED N AGRUEMENTS IN : total number of argument including [0] is N+1
+if len(sys.argv) < 5:
     print("you must set 4 arguments as stat[o3|rmse|...] [day1|day2|day3] start_date end_date event_equal[optional]")
     sys.exit()
 else:

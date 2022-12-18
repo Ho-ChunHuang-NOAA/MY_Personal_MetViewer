@@ -4,9 +4,9 @@ import shutil
 import os 
 import subprocess
 
-### PASSED AGRUEMENTS
-if len(sys.argv) < 4:
-    print("you must set 4 arguments as stat[ozmax8|rmse|...] [06|12|all] [day1|day2|day3|all] start_date end_date event_equal[optional]")
+# PASSED N AGRUEMENTS IN : total number of argument including [0] is N+1
+if len(sys.argv) < 6:
+    print("you must set 5 arguments as stat[ozmax8|rmse|...] [06|12|all] [day1|day2|day3|all] start_date end_date event_equal[optional]")
     sys.exit()
 else:
     stat_var = sys.argv[1]
@@ -17,8 +17,8 @@ else:
 if stat_var == "ozmax8":
     stat_var = "time_series"
 print(str(len(sys.argv)))
-if len(sys.argv) > 5:
-    event_equal_flag = sys.argv[5]
+if len(sys.argv) > 6:
+    event_equal_flag = sys.argv[6]
 else:
     event_equal_flag = "true"
     print("the evn equalizer is set to true, if you want to change it please add true/false for the 5th argument")

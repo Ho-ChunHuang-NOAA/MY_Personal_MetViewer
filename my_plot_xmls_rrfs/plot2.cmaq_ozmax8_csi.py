@@ -127,7 +127,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     if 1 == 1:
         xml.write("        <host>rds_host:3306</host>\n")
-        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"</database>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c22_"+database_date+"</database>\n")
         xml.write("        <user>rds_user</user>\n")
         xml.write("        <password>rds_pwd</password>\n")
         ### xml.write("        <management_system>aurora</management_system>\n")
@@ -142,7 +142,7 @@ with open(plot_xml_file, 'a') as xml:
         xml.write("    </folders>\n")
     else:
         xml.write("        <host>metviewer-dev-2-cluster.cluster-c0bl5kb6fffo.us-east-1.rds.amazonaws.com</host>\n")
-        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"</database>\n")
+        xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c22_"+database_date+"</database>\n")
         xml.write("        <user>******</user>\n")
         xml.write("        <password>******</password>\n")
         xml.write("        <management_system>aurora</management_system>\n")

@@ -1,8 +1,9 @@
 #!/bin/sh
 #
 ## ls *csi.py> tlist
-## ls plot2* > tlist
-ls plot2.cmaq_b_* > tlist
+ls plot2* > tlist
+## ls plot* > tlist
+## ls plot2.cmaq_b_* > tlist
 count=0
 while read line
 do
@@ -39,14 +40,16 @@ old_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+data
 new_ver='mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70b1_"+database_date+"'
 old_ver='mv_g2o_met_o3pm_b_v70c3'
 new_ver='mv_g2o_met_o3pm_b_v70c15'
-old_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c15_"+database_date+"'
-new_ver='mv_g2o_met_o3pm_b_prod_202211,mv_g2o_met_o3pm_b_prod_202212,mv_g2o_met_o3pm_b_v70c22_202211,mv_g2o_met_o3pm_b_v70c22_202212'
 old_ver='v70c15'
 new_ver='v70c22'
 old_ver='V70C15'
 new_ver='V70C22'
 old_ver='v70-c15'
 new_ver='v70-c22'
+old_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70b1_"+database_date+"'
+new_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c22_"+database_date+"'
+old_ver='mv_g2o_met_o3pm_b_prod_202211,mv_g2o_met_o3pm_b_prod_202212,mv_g2o_met_o3pm_b_v70c22_202211,mv_g2o_met_o3pm_b_v70c22_202212'
+new_ver='mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c22_"+database_date+"'
 for i in "${shfile[@]}"
 do
    echo ${i}
