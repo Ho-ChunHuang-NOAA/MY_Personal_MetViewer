@@ -60,11 +60,11 @@ if stat_var == "rmsedl":
    vday=[ "day3" ]
 elif stat_var == "medl":
    vday=[ "day3" ]
-region = [ "CONUS" ]
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ] 
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 region = [ "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West" ]
 region = [ "NRockies", "SRockies", "GreatBasin", "PacificNW", "PacificSW", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "Southwest" ]
+region = [ "CONUS" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_base"
 plot_xml_file = "plot_cmaq_o3_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
@@ -130,7 +130,7 @@ if 1 == 1:
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "web", "fig", database_year, database_date)
     else:
        ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
 
     subprocess.call(['scp -p * '+partb], shell=True)
