@@ -11,8 +11,8 @@ select_day=day2
 declare -a cyc=( 12 )
 declare -a cyc=( 06  12 )
 declare -a fday=( day1 day2 day3 )
-beg_date=20221101 
-end_date=20221113
+beg_date=20220701 
+end_date=20220731
 for i in "${o3pm_var[@]}"; do
     for j in "${cyc[@]}"; do
         for k in "${fday[@]}"; do

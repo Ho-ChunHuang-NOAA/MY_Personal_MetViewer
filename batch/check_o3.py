@@ -58,7 +58,7 @@ region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 
 region = [ "CONUS" ]
-region = [ "CONUS_South" ]
+region = [ "CONUS_West" ]
 
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_v70c3"
