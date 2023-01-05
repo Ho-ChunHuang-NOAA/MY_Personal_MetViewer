@@ -3,6 +3,7 @@ import datetime
 import shutil
 import os 
 import subprocess
+import fnmatch
 
 ### PASSED AGRUEMENTS
 if len(sys.argv) < 4:
@@ -23,6 +24,19 @@ database_year_format = "%Y"
 database_date = sdate.strftime(database_date_format)
 database_year = sdate.strftime(database_year_format)
 
+
+database_bdate = sdate.strftime(database_date_format)
+database_edate = edate.strftime(database_date_format)
+
+ibeg=int(start_date[0:6])
+iend=int(end_date[0:6])
+addbase=[ ]
+for i in range(ibeg,iend+1):
+    new_year=str(i)
+    addbase.append(str(i))
+    i+=1
+print(addbase)
+sys.exit()
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
 ###METviewer_AWS_scripts_dir = "/gpfs/hps3/emc/global/noscrub/Mallory.Row/VRFY/METviewer_AWS"

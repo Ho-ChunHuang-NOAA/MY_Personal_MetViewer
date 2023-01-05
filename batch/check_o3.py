@@ -6,7 +6,7 @@ import subprocess
 
 # PASSED N AGRUEMENTS IN : total number of argument including [0] is N+1
 if len(sys.argv) < 6:
-    print("you must set 5 arguments as stat[o3|rmse|...] [06|12|all] [day1|day2|day3|all] start_date end_date event_equal[optional]")
+    print("you must set 6 arguments as stat[o3|rmse|...] [06|12|all] [day1|day2|day3|all] start_date end_date fig_date event_equal[optional]")
     sys.exit()
 else:
     stat_var = sys.argv[1]
@@ -14,11 +14,12 @@ else:
     flag_vday = sys.argv[3]
     start_date = sys.argv[4]
     end_date = sys.argv[5]
+    figname_date = sys.argv[6]
 if stat_var == "o3":
     stat_var = "time_series"
 print(str(len(sys.argv)))
-if len(sys.argv) > 6:
-    event_equal_flag = sys.argv[6]
+if len(sys.argv) > 7:
+    event_equal_flag = sys.argv[7]
 else:
     event_equal_flag = "true"
     print("the evn equalizer is set to true, if you want to change it please add true/false for the 5th argument")
@@ -32,6 +33,15 @@ database_year = sdate.strftime(database_year_format)
 
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
+
+ibeg=int(start_date[0:6])
+iend=int(end_date[0:6])
+addbase=[ ]
+for i in range(ibeg,iend+1):
+    addbase.append(str(i))
+    i+=1
+## print(addbase)
+
 METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
 if flag_cyc == "all":
@@ -80,10 +90,17 @@ if os.path.exists(tmp_data_dir):
 os.makedirs(tmp_data_dir)
 
 database_header="mv_g2o_met_o3pm_b_"
-exp_labl=[ "LBL1", "LBL2" ]
-exp_symb=[ "MDL1", "MDL2" ]
-exp_incl=[ "prod", "v70c22" ]
+
+exp_incl=[ "prod", "v70c42", "v70c43" ]
 inum=len(exp_incl)
+exp_labl=[]
+for i in range(0,inum):
+    ic=i+1
+    exp_labl.append("LBL"+str(ic))
+exp_symb=[]
+for i in range(0,inum):
+    ic=i+1
+    exp_symb.append("MDL"+str(ic))
 xml_python_basename = "plot"+str(inum)+".cmaq_o3_"+stat_var.lower()+".base"
 xml_gen_python_name = "common_plot.cmaq_o3."+stat_var.lower()+".py"
 
@@ -97,12 +114,15 @@ shutil.copy(os.path.join(scripts_dir, batch_script_name), tmp_data_dir)
 shutil.copy(os.path.join(xml_data_dir, xml_python_basename), tmp_data_dir)
 
 iexp=0
-for i in exp_incl:
-    if iexp == 0 :
-        met_database_run=database_header+i.lower()+"_"+database_date
-    else:
-        met_database_run=met_database_run+','+database_header+i.lower()+"_"+database_date
-    iexp+=1
+print(addbase)
+for j in addbase:
+    for i in exp_incl:
+        if iexp == 0 :
+            met_database_run=database_header+i.lower()+"_"+j
+        else:
+            met_database_run=met_database_run+','+database_header+i.lower()+"_"+j
+        iexp+=1
+
 run_command='sed -e "s!XYZdatabase_nameXYZ!'+met_database_run+'!" '
 for i in range(0,inum):
     run_command=run_command+' -e "s!XYZ'+exp_symb[i]+'XYZ!'+exp_incl[i].upper()+'!" '
@@ -117,7 +137,7 @@ if 1 == 1:
     for area in region:
         for verf_day in vday:
             for verf_cycle in run_cycle:
-                subprocess.call(["python", xml_gen_python_name, area, area, verf_day.lower(), fig_sdate, fig_edate, verf_cycle, event_equal_flag])
+                subprocess.call(["python", xml_gen_python_name, area, area, verf_day.lower(), fig_sdate, fig_edate, figname_date, verf_cycle, event_equal_flag])
                 if os.path.isfile(plot_xml_file):
                     subprocess.call([os.path.join(".", batch_script_name), os.environ['USER'].lower(), figure_dir, plot_xml_file])
                 else:
@@ -129,8 +149,8 @@ if 1 == 1:
     if 1 == 2:
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "web", "fig", database_year, database_date)
     else:
-       ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp4")
 
     subprocess.call(['scp -p * '+partb], shell=True)
