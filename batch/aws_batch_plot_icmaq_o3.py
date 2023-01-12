@@ -60,15 +60,16 @@ if stat_var == "rmsedl":
    vday=[ "day3" ]
 elif stat_var == "medl":
    vday=[ "day3" ]
-region = [ "CONUS" ]
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD", "GRB" ] 
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 region = [ "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West" ]
+region = [ "CONUS" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot2.cmaq_o3_"+stat_var.lower()+".py"
-xml_gen_python_name = "plot3.cmaq_o3_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot2.cmaq_b_o3_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot3.cmaq_o3_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot4.cmaq_o3_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_o3_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
@@ -108,6 +109,6 @@ if 1 == 1:
     else:
        ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp2")
 
     subprocess.call(['scp -p * '+partb], shell=True)

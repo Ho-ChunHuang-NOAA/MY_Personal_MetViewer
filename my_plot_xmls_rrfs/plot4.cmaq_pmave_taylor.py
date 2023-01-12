@@ -58,7 +58,7 @@ ybuf="0.04"
 ymin="0.04"
 ymax="0.5"
 
-models = [  "PROD", "PROD_BC", "V70C3", "V70C3_BC" ]
+models = [  "PROD", "PROD_BC", "V70C43", "V70C43_BC" ]
 lend_mdl = [ "GFS-CMAQ", "GFS-CMAQ_BC", "v70-c3", "v70-c3_BC" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
          "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "SWC", "SWD" ] 
@@ -97,7 +97,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("<plot_spec>\n")
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
-    xml.write("        <database>mv_g2o_met_o3pm_prod_"+database_date+",mv_g2o_met_o3pm_v70c3_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_o3pm_b_prod_"+database_date+",mv_g2o_met_o3pm_b_v70c43_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     ### xml.write("        <management_system>aurora</management_system>\n")
@@ -277,7 +277,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(1,1,1,1)</con_series>\n")
     xml.write("        <order_series>c(1,2,3,4)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"PROD\",\"PROD_BC\",\"v70c3\",\"v70c3_BC\")</legend>\n")
+    xml.write("        <legend>c(\"PROD\",\"PROD_BC\",\"v70c43\",\"v70c43_bc\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
 ## autoscaling
     xml.write("        <y1_lim>c()</y1_lim>\n")

@@ -13,10 +13,10 @@ done<tlist
 
 old_ver='mv_g2o_met_o3pm_v70b1'
 new_ver='mv_g2o_met_o3pm_v70c3'
-old_ver='V70B1'
-new_ver='V70C3'
-old_ver='v70b1'
-new_ver='v70c3'
+old_ver='mv_g2o_met_o3pm_v70c43'
+new_ver='mv_g2o_met_o3pm_b_v70c43'
+old_ver='V70C3_BC'
+new_ver='V70C43_BC'
 for i in "${shfile[@]}"
 do
    echo ${i}

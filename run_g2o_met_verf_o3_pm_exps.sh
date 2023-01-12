@@ -82,7 +82,7 @@ for i in "${exp[@]}"; do
         if [ "${database}" == "chem" ]; then
             cp ${DATA_DIR}/${NOW}/${capexp}_AQ* .
             cp ${DATA_DIR}/${NOW}/${capexp}_PM* .
-            if [ "${capexp}" == "PROD" ]; then
+            if [ "${capexp}" == "PROD" ] || [ "${capexp}" == "V70C43" ]; then
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_AQ* .
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_PM* .
             fi

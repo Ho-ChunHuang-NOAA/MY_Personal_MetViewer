@@ -89,7 +89,9 @@ if os.path.exists(tmp_data_dir):
 os.makedirs(tmp_data_dir)
 
 database_header="mv_g2o_met_o3pm_b_"
-exp_incl=[ "prod", "v70c42", "v70c43" ]
+exp_incl=[ "prod", "v70c43" ]
+exp_incl=[ "prod", "v70c43", "v70c45" ]
+exp_incl=[ "prod", "prod_bc", "v70c43", "v70c43_bc" ]
 inum=len(exp_incl)
 exp_labl=[]
 for i in range(0,inum):
@@ -111,20 +113,37 @@ os.chdir(tmp_data_dir)
 shutil.copy(os.path.join(scripts_dir, batch_script_name), tmp_data_dir)
 shutil.copy(os.path.join(xml_data_dir, xml_python_basename), tmp_data_dir)
 
+explist=[]
 iexp=0
 print(addbase)
 for j in addbase:
     for i in exp_incl:
         if iexp == 0 :
-            met_database_run=database_header+i.lower()+"_"+j
+            nfind=i.find("_bc")
+            if nfind == -1:
+                EXP=i
+            else:
+                EXP=i[0:nfind]
+            met_database_run=database_header+EXP.lower()+"_"+j
+            explist.append(EXP)
         else:
-            met_database_run=met_database_run+','+database_header+i.lower()+"_"+j
+            nfind=i.find("_bc")
+            if nfind == -1:
+                EXP=i
+            else:
+                EXP=i[0:nfind]
+            add_exp=True
+            for old_exp in explist:
+                if old_exp == EXP:
+                    add_exp=False
+            if add_exp:
+                 met_database_run=met_database_run+','+database_header+EXP.lower()+"_"+j
+                 explist.append(EXP)
         iexp+=1
-print(met_database_run)
 run_command='sed -e "s!XYZdatabase_nameXYZ!'+met_database_run+'!" '
 for i in range(0,inum):
     run_command=run_command+' -e "s!XYZ'+exp_symb[i]+'XYZ!'+exp_incl[i].upper()+'!" '
-    if i == 0 :
+    if i == 0 or i == 1:
         run_command=run_command+' -e "s!XYZ'+exp_labl[i]+'XYZ!'+exp_incl[i].upper()+'!" '
     else:
         run_command=run_command+' -e "s!XYZ'+exp_labl[i]+'XYZ!'+exp_incl[i].lower()+'!" '
@@ -147,8 +166,8 @@ if 1 == 1:
     if 1 == 2:
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "web", "fig", database_year, database_date)
     else:
+       ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", database_year, database_date )
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
-       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp4")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp2")
 
     subprocess.call(['scp -p * '+partb], shell=True)
