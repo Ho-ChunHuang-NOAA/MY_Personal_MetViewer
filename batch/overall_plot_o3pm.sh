@@ -12,9 +12,9 @@ declare -a cyc=( 12 )
 declare -a cyc=( 06  12 )
 declare -a fday=( day1 day2 day3 )
 
-beg_date=20220801 
-end_date=20220831
-figname_date=202208
+beg_date=20220701
+end_date=20220731
+figname_date=202207
 
 declare -a o3pm_var=( o3 pm25 )
 for i in "${o3pm_var[@]}"; do

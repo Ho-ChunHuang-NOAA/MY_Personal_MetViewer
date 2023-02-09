@@ -131,7 +131,7 @@ while [ ${NOW} -le ${LASTDAY} ]; do
     if [ "${database}" == "chem" ]; then
         cp ${DATA_DIR}/${NOW}/${capexp}_AQ* .
         cp ${DATA_DIR}/${NOW}/${capexp}_PM* .
-        if [ "${capexp}" == "PROD" ] || [ "${capexp}" == "V70C43" ]; then
+        if [ "${capexp}" == "PROD" ] || [ "${capexp}" == "V70C55" ]; then
         ## if [ "${capexp}" == "PROD" ]; then
             cp ${DATA_DIR}/${NOW}/${capexp}_BC_AQ* .
             cp ${DATA_DIR}/${NOW}/${capexp}_BC_PM* .

@@ -1,9 +1,8 @@
 #!/bin/bash
 module load prod_util
-declare -a exp=( prod v70c22 )
-declare -a exp=( v70c43 )
+declare -a exp=( prod v70c55 )
 declare -a exp=( prod )
-declare -a exp=( v70c46 )
+declare -a exp=( v70c55 )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then
@@ -82,7 +81,7 @@ for i in "${exp[@]}"; do
         if [ "${database}" == "chem" ]; then
             cp ${DATA_DIR}/${NOW}/${capexp}_AQ* .
             cp ${DATA_DIR}/${NOW}/${capexp}_PM* .
-            if [ "${capexp}" == "PROD" ] || [ "${capexp}" == "V70C43" ]; then
+            if [ "${capexp}" == "PROD" ] || [ "${capexp}" == "V70C55" ]; then
             ## if [ "${capexp}" == "PROD" ]; then
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_AQ* .
                 cp ${DATA_DIR}/${NOW}/${capexp}_BC_PM* .
