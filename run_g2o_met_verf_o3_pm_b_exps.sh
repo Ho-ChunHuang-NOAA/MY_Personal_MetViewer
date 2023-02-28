@@ -40,6 +40,7 @@ database=meteor
 database=chem
 if [ "${database}" == "chem" ]; then
     verif_var="o3pm"
+    DATA_DIR=/lfs/h2/emc/vpppg/noscrub/${USER}/metplus_aq/stat/aqm
     DATA_DIR=/lfs/h2/emc/physics/noscrub/${USER}/metplus_aq/stat/aqm
 elif [ "${database}" == "meteor" ]; then
     verif_var="cam"

@@ -30,6 +30,10 @@ database_year = sdate.strftime(database_year_format)
 
 fig_sdate = sdate.strftime(file_date_format)
 fig_edate = edate.strftime(file_date_format)
+
+ftp_year=figname_date[0:4]
+ftp_dir=figname_date
+
 METviewer_AWS_scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS"
 print(METviewer_AWS_scripts_dir)
 if flag_vday == "all":
@@ -103,6 +107,7 @@ if 1 == 1:
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "web", "fig", database_year, database_date)
     else:
        ## partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "transfer")
+       partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "evs_verif", ftp_year, ftp_dir )
        partb=os.path.join("hchuang@rzdm:", "home", "www", "emc", "htdocs", "mmb", "hchuang", "ftp")
 
     subprocess.call(['scp -p * '+partb], shell=True)
