@@ -60,7 +60,7 @@ os.makedirs(tmp_data_dir)
 ymax="75.0"
 ymin="0.0"
 ybuf="0.0"
-models = [ "V70C3" ]
+models = [ "V70C55" ]
 lend_mdl = [ "v161-g" ]
 lend_obs = [ "OBS" ]
 regs = [ "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
@@ -100,7 +100,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("    <connection>\n")
     xml.write("        <host>rds_host:3306</host>\n")
     ## xml.write("        <database>mv_cmaq_aod"+database_date+"_grid2grid_metplus</database>\n")
-    xml.write("        <database>mv_g2o_met_cam_b_v70c3_"+database_date+"</database>\n")
+    xml.write("        <database>mv_g2o_met_cam_b_v70c55_"+database_date+"</database>\n")
     xml.write("        <user>rds_user</user>\n")
     xml.write("        <password>rds_pwd</password>\n")
     xml.write("        <management_system>aurora</management_system>\n")
@@ -299,7 +299,7 @@ with open(plot_xml_file, 'a') as xml:
     xml.write("        <con_series>c(0,0)</con_series>\n")
     xml.write("        <order_series>c(1,2)</order_series>\n")
     xml.write("        <plot_cmd/>\n")
-    xml.write("        <legend>c(\"v70C3\",\"OBS\")</legend>\n")
+    xml.write("        <legend>c(\"V70C55\",\"OBS\")</legend>\n")
     xml.write("        <create_html>FALSE</create_html>\n")
     ## xml.write("        <y1_lim>c("+ymin+","+ymax+")</y1_lim>\n")
     xml.write("        <y1_lim>c()</y1_lim>\n")

@@ -53,25 +53,16 @@ elif stat_var == "medl":
    vday=[ "day2" ]
 run_cycle = [ "06Z", "12Z" ]
 run_cycle = [ "12Z" ]
-region = [ "CONUS", "WEST", "SWC", "NWC" ]
-region = [ "CONUS", "WEST", "EAST", "SWC", "NWC", "NEC", "SEC""MDW", "NMT", "NPL" ]
-region = [ "CONUS", "WEST", "EAST", "NWC", "NEC", "SWC" ]
 vday=[ "day2" ]
 run_cycle = [ "12Z" ]
-region = [ "CONUS", "WEST", "EAST" ]
-region = [ "CONUS" ]
-region = [ "WESTsub", "EASTsub" ]
-region = [ "GMC", "GRB", "MEX", "LMV"  ]
-region = [ "GRB", "SPL", "SWD", "MEX"  ]
-region = [ "GMC", "LMV"  ]
-region = [ "SWC", "SWD", "SMT" ]
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
-region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL",
-           "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD", "MEX" ] 
+region = [ "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West" ]
+region = [ "MidAtlantic", "NorthAtlantic" ]
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_icmaq"
 xml_data_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/my_plot_xmls_rrfs"
 xml_gen_python_name = "plot3.cmaq_rh_"+stat_var.lower()+".py"
 xml_gen_python_name = "plot2.cmaq_rh_"+stat_var.lower()+".py"
+xml_gen_python_name = "plot.cmaq_rh_"+stat_var.lower()+".py"
 plot_xml_file = "plot_cmaq_rh_"+stat_var.lower()+".xml"
 scripts_dir = "/lfs/h2/emc/vpppg/save/"+os.environ['USER']+"/METviewer_AWS/script"
 
