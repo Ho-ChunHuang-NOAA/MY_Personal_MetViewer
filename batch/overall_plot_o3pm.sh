@@ -13,7 +13,7 @@ declare -a cyc=( 06  12 )
 declare -a fday=( day1 day2 day3 )
 
 beg_date=20230501
-end_date=20230520
+end_date=20230530
 figname_date=202305
 
 ##
