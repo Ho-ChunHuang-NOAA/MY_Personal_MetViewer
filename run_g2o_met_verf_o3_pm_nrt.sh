@@ -101,7 +101,7 @@ elif [ "${database}" == "meteor" ]; then
 fi
 
 SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
-XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+XML=/lfs/h2/emc/vpppg/save/${USER}/METviewer_AWS/XML
 
 verif_type=g2o_met
 load_datbase_template=load_${verif_type}.base

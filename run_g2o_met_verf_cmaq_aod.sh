@@ -61,7 +61,7 @@ fi
 hl=`hostname | cut -c1`
 
 SCRIPT=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/script
-XML=/lfs/h2/emc/physics/noscrub/${USER}/METviewer_AWS/XML
+XML=/lfs/h2/emc/vpppg/save/${USER}/METviewer_AWS/XML
 ##
 ## verif need to be consistent for "type" defined in XML/load_g2g_met_verf_aod.xml
 ##
