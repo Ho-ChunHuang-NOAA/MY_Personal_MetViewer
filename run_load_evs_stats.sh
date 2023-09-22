@@ -1,8 +1,8 @@
 #!/bin/bash
 module load prod_util
-declare -a exp=( aqmv6 aqmv7 )
 declare -a exp=( aqmv6 )
 declare -a exp=( aqmv7 )
+declare -a exp=( aqmv6 aqmv7 )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then
