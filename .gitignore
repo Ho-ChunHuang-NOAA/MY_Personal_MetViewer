@@ -1,11 +1,11 @@
 replace_all.sh
 tlist
 xtest1
-batch/csv_batch_plot_aqm*
-batch/aws_batch_plot_aqm*
-batch/aws_batch_plot_evs*
-batch/aws_batch_plot_aqm2*
-XML/load_g2o_met_o3pm*
+csv_batch_plot_aqm*
+aws_batch_plot_aqm*
+aws_batch_plot_evs*
+aws_batch_plot_aqm2*
+load_g2o_met_o3pm*
 a1
 a2
 add*
