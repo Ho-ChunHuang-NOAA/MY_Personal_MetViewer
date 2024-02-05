@@ -12,9 +12,9 @@ declare -a cyc=( 12 )
 declare -a cyc=( 06  12 )
 declare -a fday=( day1 day2 day3 )
 
-beg_date=20230901
-end_date=20230930
-figname_date=202309
+beg_date=20240101
+end_date=20240131
+figname_date=202401
 
 ##
 ## note time series is now fixed y-axis, need to adjust pm25 ymax for the fire months >=65
