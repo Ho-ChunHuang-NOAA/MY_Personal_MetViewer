@@ -2,8 +2,11 @@
 module load prod_util
 declare -a exp=( aqmv6 )
 declare -a exp=( aqmv6 aqmv7 )
-declare -a exp=( aqmv70 )
-declare -a exp=( aqmv71a )
+declare -a exp=( aqmv707 aqmv708 )
+declare -a exp=( aqmv708 )
+declare -a exp=( aqmv707 )
+declare -a exp=( aqmv707n )
+declare -a exp=( aqmv708n )
 MSG="$0 new/add beg_date end_date"
 TODAY=`date +%Y%m%d`
 if [ $# -eq 0 ]; then

@@ -12,9 +12,9 @@ declare -a cyc=( 12 )
 declare -a cyc=( 06  12 )
 declare -a fday=( day1 day2 day3 )
 
-beg_date=20240401
-end_date=20240430
-figname_date=202404
+beg_date=20240601
+end_date=20240831
+figname_date=2024jja
 
 ##
 ## note time series is now fixed y-axis, need to adjust pm25 ymax for the fire months >=65
@@ -25,6 +25,8 @@ for i in "${o3pm_var[@]}"; do
             python aws_batch_plot_aqm_${i}_raw.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}_bc.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
+            python aws_batch_plot_aqm_${i}.py rmsets ${j} ${k} ${beg_date} ${end_date} ${figname_date}
+            python aws_batch_plot_aqm_${i}.py mets ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py taylor ${j} ${k} ${beg_date} ${end_date} ${figname_date}
         done
         python aws_batch_plot_aqm_${i}.py medl ${j} day3 ${beg_date} ${end_date} ${figname_date}
@@ -38,6 +40,8 @@ for i in "${o3pm_var[@]}"; do
             python aws_batch_plot_aqm_${i}_raw.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}_bc.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py ${i} ${j} ${k} ${beg_date} ${end_date} ${figname_date}
+            python aws_batch_plot_aqm_${i}.py rmsets ${j} ${k} ${beg_date} ${end_date} ${figname_date}
+            python aws_batch_plot_aqm_${i}.py mets ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py csi ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py taylor ${j} ${k} ${beg_date} ${end_date} ${figname_date}
             python aws_batch_plot_aqm_${i}.py performance ${j} ${k} ${beg_date} ${end_date} ${figname_date}

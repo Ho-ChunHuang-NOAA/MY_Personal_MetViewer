@@ -54,6 +54,7 @@ elif stat_var == "medl":
 run_cycle = [ "06Z", "12Z" ]
 vday=[ "day2" ]
 run_cycle = [ "12Z" ]
+region = [ "WFIRE", "WDWNWIND" ]
 region = [ "FULL", "CONUS", "EAST", "WEST", "NEUS", "SEUS", "NWUS", "SWUS", "NEC", "SEC", "APL", "GMC", "LMV", "MDW", "NMT", "NPL", "SMT", "SPL", "NWC", "GRB", "SWC", "SWD", "MEX" ] 
 region = [ "Appalachia", "CONUS_Central", "CONUS_East", "CONUS", "CONUS_South", "CONUS_West", "CPlains", "DeepSouth", "GreatBasin", "GreatLakes", "Mezquital", "MidAtlantic", "NorthAtlantic", "NPlains", "NRockies", "PacificNW", "PacificSW", "Prairie", "Southeast", "Southwest", "SPlains", "SRockies" ]
 region = [ "CONUS_East" ]
